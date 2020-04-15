@@ -7,4 +7,4 @@ yarn.lock
 package-lock.json
 
 # dist
-docs/.vuepress/dist
+docs/.vuepress/dist/*

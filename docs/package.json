@@ -8,7 +8,7 @@
     "build": "vuepress build"
   },
   "author": {
-    "name": "INT Chain Develop Team",
+    "name": "INT Chain Development Team",
     "email": "developer@intchain.io"
   },
   "license": "ISC",

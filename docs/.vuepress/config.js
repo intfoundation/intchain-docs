@@ -79,7 +79,7 @@ module.exports = {
                     link: 'https://intchain.io'
                 }],
                 sidebar: sidebar("", [
-                    ["快速开始", "/zh/get-started"]
+                    ["快速开始", "/zh/getting-started"]
                 ])
             }
         },

@@ -1,6 +1,6 @@
 # Welcome to INT Chain 4.0 Documents
 
-![intchain](./docs/.vuepress/public/intchain.jpg)
+![intchain](./.vuepress/public/intchain.jpg)
 
 
 ## About INT Chain
