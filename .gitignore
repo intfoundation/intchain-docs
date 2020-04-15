@@ -4,6 +4,7 @@
 # node modules
 node_modules
 yarn.lock
+package-lock.json
 
 # dist
 docs/.vuepress/dist
