@@ -40,13 +40,13 @@ module.exports = {
     locales: {
         "/": {
             lang: "en-US",
-            title: "INT Chain Documents",
-            description: "INT Chain Documents",
+            title: "INT Chain 4.0 Documents",
+            description: "INT Chain 4.0 Documents",
         },
         "/zh/": {
             lang: "简体中文",
-            title: "INT Chain 文档",
-            description: "INT Chain 文档",
+            title: "INT Chain 4.0 文档",
+            description: "INT Chain 4.0 文档",
         }
     },
     themeConfig: {
