@@ -70,7 +70,8 @@ module.exports = {
                     }
                 ],
                 sidebar: sidebar("", [
-                    ["Getting Started", "getting-started"]
+                    ["Getting Started", "getting-started"],
+                    ["Common Concepts", "concepts"]
                 ])
             },
             "/zh/": {
