@@ -32,12 +32,12 @@ The data of the intchain node is stored in the `nodes` directory of the home, bl
 
 ### genesis.json
 
-genesis.json defines the consensus data, which specifies the system parameters such as chain_id, consensus parameters, creation of validators. See [genesis-file](../concepts/genesis-file.md) for details.
+genesis.json defines the consensus data, which specifies the system parameters such as chain_id, consensus parameters, creation of validators. See [genesis-file](../concepts/3-genesis-file.md) for details.
 
 
 ### int_genesis.json
 
-int_genesis.json defines the genesis block data, which specifies the system parameters such as chain_id, the initial account token allocation. See [int-genesis-file](../concepts/genesis-file.md) for details.
+int_genesis.json defines the genesis block data, which specifies the system parameters such as chain_id, the initial account token allocation. See [int-genesis-file](../concepts/3-genesis-file.md) for details.
 
 
 ### nodekey
