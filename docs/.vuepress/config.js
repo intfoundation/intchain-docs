@@ -73,6 +73,7 @@ module.exports = {
                     ["Getting Started", "getting-started"],
                     ["Basic Concepts", "concepts"],
                     ["Common Features", "features"],
+                    ["Using INTChain", "using-intchain"]
                 ])
             },
             "/zh/": {

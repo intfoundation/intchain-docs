@@ -27,7 +27,7 @@ VERSION:
    
 COMMANDS:
    version             
-   init_int_genesis    init_int_genesis balance:{"1000000000000000000000000000","100000000000000000000000"}"
+   init_int_genesis    init_int_genesis balance:"{"1000000000000000000000000000","100000000000000000000000"}"
    init                init genesis.json
    gen_node_info       gen_node_info number
    gen_priv_validator  gen_priv_validator address
@@ -70,11 +70,11 @@ API AND CONSOLE OPTIONS:
   --rpc                  Enable the HTTP-RPC server
   --rpcaddr value        HTTP-RPC server listening interface (default: "localhost")
   --rpcport value        HTTP-RPC server listening port (default: 8555)
-  --rpcapi value         API's offered over the HTTP-RPC interface
+  --rpcapi value         API is offered over the HTTP-RPC interface
   --ws                   Enable the WS-RPC server
   --wsaddr value         WS-RPC server listening interface (default: "localhost")
   --wsport value         WS-RPC server listening port (default: 8556)
-  --wsapi value          API's offered over the WS-RPC interface
+  --wsapi value          API is offered over the WS-RPC interface
   --wsorigins value      Origins from which to accept websockets requests
   --ipcdisable           Disable the IPC-RPC server
   --ipcpath              Filename for IPC socket/pipe within the datadir (explicit paths escape it)
