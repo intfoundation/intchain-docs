@@ -32,6 +32,9 @@ const sidebar = (directory, array) => {
 
 module.exports = {
     base: "/",
+    head: [
+        ["link", { rel: "icon", href: "public/int.ico"}]
+    ],
     plugins: [
         ['@vuepress/search', {
             searchMaxSuggestions: 10
