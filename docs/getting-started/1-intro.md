@@ -11,7 +11,7 @@ order: 1
 INT Chain is the world's first bottom up new-generation blockchain of things (BoT) communication standard and base application platform. The ecosystem is specifically designed for easy integration with any IoT protocol.
 
 
-## INT Tokens
+## INT Token
 The INT Chain its own native token known as *INT*.  It is designed to serve two purposes in the network.
 
 * **Staking.**  Similar to the ATOM token in the Cosmos Hub, the INT token will be used as a staking token to secure the IPBFT blockchain.
