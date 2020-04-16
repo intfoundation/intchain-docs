@@ -63,7 +63,7 @@ As a delegator, the more bonded tokens it has on validator, the more rewards it 
 
 - Unbond tokens from a validator
 
-  use amount for Unbonding
+  Use amount for Unbonding
 
   ```bash
   curl -X POST --data '{"jsonrpc":"2.0","method":"del_cancelDelegate","params":["INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z", "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU", "0x152d02c7e14af6800000"],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:8556/testnet

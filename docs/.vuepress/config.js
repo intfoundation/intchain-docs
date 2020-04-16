@@ -71,7 +71,8 @@ module.exports = {
                 ],
                 sidebar: sidebar("", [
                     ["Getting Started", "getting-started"],
-                    ["Common Concepts", "concepts"]
+                    ["Basic Concepts", "concepts"],
+                    ["Common Features", "features"],
                 ])
             },
             "/zh/": {
