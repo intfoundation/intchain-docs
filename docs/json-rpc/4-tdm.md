@@ -7,13 +7,13 @@ order: 4
 ## tdm_getCurrentEpochNumber
 Returns the current epoch number.
 
-### Parameters
+#### Parameters
 None
 
-### Returns
+#### Returns
 `EpochNumber`, `QUANTITY` - Integer of current epoch number.
 
-### Example
+#### Example
 
 ```bash
 // Request

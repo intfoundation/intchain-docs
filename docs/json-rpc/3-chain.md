@@ -7,7 +7,7 @@ order: 3
 ## chain_signAddress
 Sign the address with BLS private key, return the BLS signature to proof you are the owner of the BLS public key.
 
-### Parameters
+#### Parameters
    1. `from`: `DATA`, 32 Bytes - Address which will be signed.
    2. `privateKey`: `DATA`, 32 Bytes - BLS private key.
 
@@ -16,11 +16,11 @@ Sign the address with BLS private key, return the BLS signature to proof you are
         "0x9A18AC87F0FAB3E99CBC0D2E382063DDA5FD9F1CA951CC2B6CA28EA170A16717"
     ]
 
-### Returns
+#### Returns
 `Signature`, `DATA`, 64 Bytes - The BLS signature for the address.
 
 
-### Example
+#### Example
 
 ```bash
 // Request

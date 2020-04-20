@@ -7,14 +7,14 @@ order: 2
 ## int_protocolVersion
 Returns the current intchain protocol version.
 
-### Parameters
+#### Parameters
 None
 
-### Returns
+#### Returns
 
 `String` - The current intchain protocol version.
 
-### Example
+#### Example
 
 ```bash
 // Request

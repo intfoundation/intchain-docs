@@ -7,16 +7,16 @@ order: 5
 ## del_applyCandidate
 Apply to become a validator candidate.
 
-### Parameters
+#### Parameters
 1. `from`: `String`, 32 Bytes - The address the transaction is send from.
 2. `securityDeposit`: `QUANTITY` - Integer of the security deposit INT (minimum `0x3635c9adc5dea00000`), if you want to be a validator, but there is nobody can vote for you, you should deposit at least `0x152d02c7e14af6800000` INT.
 3. `commission`: `QUANTITY` - Integer of commission fee percentage (between 0 ~ 100) of each block reward be charged from delegator, when candidate become a validator.
 4. `gasPrice`: `QUANTITY` - (optional, default: To be determined) Integer of the gasPrice used for each paid gas.
 
-### Returns
+#### Returns
 `EpochNumber` - Integer of current epoch number.
 
-### Example
+#### Example
 
 ```bash
 // Request
