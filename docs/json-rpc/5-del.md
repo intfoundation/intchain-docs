@@ -14,7 +14,7 @@ Apply to become a validator candidate.
 4. `gasPrice`: `QUANTITY` - (optional, default: To be determined) Integer of the gasPrice used for each paid gas.
 
 ### Returns
-`EpochNumber`, hex string - Current epoch number.
+`EpochNumber` - Integer of current epoch number.
 
 ### Example
 
