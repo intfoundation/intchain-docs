@@ -74,11 +74,6 @@ Generates a new private key and stores it in the key store directory.
 The key file is encrypted with the given passphrase.
 Returns the address of the new account.
 
-| Client   | Method invocation                                       |
-| :--------| ---------------------------------------------------     |
-| Console  | `personal.newAccount()`                                 |
-| RPC      | `{"method": "personal_newAccount", "params": [string]}` |
-
 ### Parameters
 1. `passphrase`: `String | Number` - The passphrase to encrypt the key file.
 
@@ -144,7 +139,7 @@ The transaction is the same argument as for `int_sendTransaction` and contains t
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7","to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "value": "0x9184e72a"}, "foo"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7","to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "value": "0xde0b6b3a7640000"}, "foo"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x64c0380cc09a71f5b0357c588258b990fc55d51d900ec4d175daab0b5922c035"}
