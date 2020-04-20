@@ -2,7 +2,7 @@
 order: 5
 ---
 
-# del Namespace
+# Namespace `del`
 
 ## del_applyCandidate
 Apply to become a validator candidate.

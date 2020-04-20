@@ -2,7 +2,7 @@
 order: 3
 ---
 
-# chain Namespace
+# Namespace `chain`
 
 ## chain_signAddress
 Sign the address with BLS private key, return the BLS signature to proof you are the owner of the BLS public key.

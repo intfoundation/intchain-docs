@@ -2,7 +2,7 @@
 order: 6
 ---
 
-# personal Namespace
+# Namespace `personal`
 
 ## personal_importRawKey
 

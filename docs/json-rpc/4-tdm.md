@@ -2,7 +2,7 @@
 order: 4
 ---
 
-# tdm Namespace
+# Namespace `tdm`
 
 ## tdm_getCurrentEpochNumber
 Returns the current epoch number.
