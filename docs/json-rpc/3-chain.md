@@ -8,7 +8,7 @@ order: 3
 Sign the address with BLS private key, return the BLS signature to proof you are the owner of the BLS public key.
 
 #### Parameters
-   1. `from`: `String`, 32 Bytes - The address which will be signed.
+   1. `from`: `STRING`, 32 Bytes - The address which will be signed.
    2. `privateKey`: `DATA`, 32 Bytes - The BLS private key.
 
     params: [
@@ -17,7 +17,7 @@ Sign the address with BLS private key, return the BLS signature to proof you are
     ]
 
 #### Returns
-`Signature`, `Data`, 64 Bytes - The BLS signature for the address.
+`Signature`, `DATA`, 64 Bytes - The BLS signature for the address.
 
 
 #### Example
@@ -34,8 +34,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"chain_signAddress","params":["IN
 Withdraw the staking reward from delegate address.
 
 #### Parameters
-   1. `from`: `String`, 32 Bytes - The address has voted.
-   2. `delegateAddress`: `String`, 32 Bytes - The delegate address.
+   1. `from`: `STRING`, 32 Bytes - The address has voted.
+   2. `delegateAddress`: `STRING`, 32 Bytes - The delegate address.
 
     params: [
         "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
@@ -43,7 +43,7 @@ Withdraw the staking reward from delegate address.
     ]
 
 #### Returns
-`Data`, 32 Bytes - The transaction hash.
+`DATA`, 32 Bytes - The transaction hash.
 
 
 #### Example

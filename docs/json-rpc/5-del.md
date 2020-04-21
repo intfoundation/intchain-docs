@@ -25,3 +25,23 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"del_applyCandidate","params":["I
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xb0b72c93e315133e9573219333c0a60de146398dff5bf8ba2c90dcc5c3391b7c"}
 ```
+
+
+## del_checkCandidate
+
+
+
+## del_cancelCandidate
+
+
+
+## del_delegate
+
+
+
+## del_cancelDelegate
+
+
+
+## del_setCommission
+
