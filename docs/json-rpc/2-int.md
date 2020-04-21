@@ -49,7 +49,7 @@ params: [{
 ```    
     
 #### Returns
-`Data`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+`Data`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
 
 #### Example
 ```bash
@@ -66,13 +66,12 @@ Creates new message call transaction or a contract creation for signed transacti
 #### Parameters
 1. `Data`, The signed transaction data.
 
-
 ```
 params: ["0xf870808502540be400825208a0494e5433506b72317a4d6d6b336d6e467a6968483546346b4e784661764a6f34018027a0c7ccd8d71e29886601c7e026902c1e869a40097f4791886c97e97f692b179d44a03cba826c07b6e34a7681d7222a12c3c1e662fce8e23e4d4332eac627f6d3b294"]
 ```    
     
 #### Returns
-`Data`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+`Data`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
 
 #### Example
 ```bash
