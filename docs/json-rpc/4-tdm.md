@@ -363,7 +363,7 @@ None
 
 #### Returns
 `Object`- Forbidden data object
-* `forbiddenList`: `ARRAY` - The validator candidate list.
+* `forbiddenList`: `ARRAY` - The forbidden validator list.
 
 #### Example
 
