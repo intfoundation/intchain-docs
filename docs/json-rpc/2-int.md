@@ -100,7 +100,7 @@ None
 
 `Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
   - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
-  - `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
+  - `currentBlock`: `QUANTITY` - The current block, same as int_blockNumber
   - `highestBlock`: `QUANTITY` - The estimated highest block
 
 #### Example
@@ -280,7 +280,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalance","params":["INT3H
 }
 ```
 
-## eth_getTransactionCount
+## int_getTransactionCount
 
 Returns the number of transactions *sent* from an address.
 
@@ -565,7 +565,7 @@ Generates and returns an estimate of how much gas is necessary to allow the tran
 
 #### Parameters
 
-See [int_call](#int_call) parameters, expect that all properties are optional. If no gas limit is specified geth uses the block gas limit from the pending block as an upper bound. As a result the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.
+See [int_call](#int_call) parameters, expect that all properties are optional. If no gas limit is specified `intchain` uses the block gas limit from the pending block as an upper bound. As a result the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.
 
 #### Returns
 
@@ -1052,7 +1052,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_newBlockFilter","params":[],
 ```
 
 
-## eth_newPendingTransactionFilter
+## int_newPendingTransactionFilter
 
 Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call [int_getFilterChanges](#int_getfilterchanges).
@@ -1224,10 +1224,10 @@ See [int_getFilterChanges](#int_getfilterchanges)
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}' -H 'content-type: application/json;'
 ```
 
-Result see [eth_getFilterChanges](#eth_getfilterchanges)
+Result see [int_getFilterChanges](#int_getfilterchanges)
 
 
 ## int_getWork
@@ -1269,7 +1269,7 @@ Returns the account- and storage-values of the specified account including the M
 #### getProof-Parameters
 
 1. `STRING`, 32 bytes - address of the account or contract
-2. `ARRAY`, 32 Bytes - array of storage-keys which should be proofed and included. See eth_getStorageAt
+2. `ARRAY`, 32 Bytes - array of storage-keys which should be proofed and included. See int_getStorageAt
 3. `QUANTITY|TAG` - integer block number, or the string "latest" or "earliest", see the default block parameter
 
 
@@ -1287,7 +1287,7 @@ Returns
 
 `codeHash`: `DATA`, 32 Bytes - hash of the code of the account. For a simple Account without code it will return "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
 
-`nonce`: `QUANTITY`, - nonce of the account. See eth_getTransactionCount
+`nonce`: `QUANTITY`, - nonce of the account. See int_getTransactionCount
 
 `storageHash`: `DATA`, 32 Bytes - SHA3 of the StorageRoot. All storage will deliver a MerkleProof starting with this rootHash.
 
