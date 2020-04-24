@@ -280,6 +280,81 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalance","params":["INT3H
 }
 ```
 
+## int_getFullBalance
+
+Returns the balance of the account of given address.
+
+#### Parameters
+
+1. `STRING`, 32 Bytes - address to check for balance.
+2. `QUANTITY|TAG` - Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
+3. `BOOL` - If true it returns the full detail of proxied/reward object under this address.
+
+#### Example Parameters
+```
+params: [
+   'INT3HGH5oAByC1ni3yccBKrrLcNTZry7',
+   'latest',
+   true
+]
+```
+
+#### Returns
+`Object` - Balance and reward detail object:
+- `balance`: `QUANTITY` - Integer of the current balance in int-atto.
+- `proxied_detail`: `Object` - Detail record of each address's proxied data, including proxied balance, deposit proxied balance and pending refund balance.
+- `reward_detail`: `Object` - Detail record of each delegate address and reward balance in int-atto.
+- `total_delegateBalance`: `QUANTITY` - Total delegate balance in int-atto to other address.
+- `total_depositBalance`: `QUANTITY` - Deposit balance in int-atto for validator stake.
+- `total_depositProxiedBalance`: `QUANTITY` - Total deposit proxied balance in int-atto for validator stake.
+- `total_pendingRefundBalance`: `QUANTITY` - Total pending refund balance in int-atto which will be return to delegate at the end of current epoch.
+- `total_proxiedBalance`: `QUANTITY` - Total proxied balance in int-atto delegate from other address.
+- `total_rewardBalance`: `QUANTITY` - Total pending reward balance in int-atto of this address.
+
+
+#### Example
+```bash
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getFullBalance","params":["INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4", "latest", true],"id":1}' -H 'content-type: application/json;'
+
+// Result
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "result":{
+        "balance":"0x23c8f89ec521a046a34e1",
+        "proxied_detail":{
+            "INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4":{
+                "ProxiedBalance":"0x21e19e0c9bab2400000",
+                "DepositProxiedBalance":"0x0",
+                "PendingRefundBalance":"0x0"
+            }
+        },
+        "reward_detail":{
+            "INT32YViqoXKLjRnp2rB7F8dXWUQMFhN":"0x2fb9bf3131752c86f3c",
+            "INT385MNAM44dwVJ4GUaqUbUTZqrMdHZ":"0x2fcaf8eb900a5a49de2",
+            "INT39iewq2jAyREvwqAZX4Wig5GVmSsc":"0x2fba5dd2e0852b7f930",
+            "INT3AV2Z33g3vcFz8n7jEKWsns8RbV6o":"0x2fece18054cd37ab5f2",
+            "INT3D4sNnoM4NcLJeosDKUjxgwhofDdi":"0x2fb3c378ea83674a435",
+            "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU":"0x11a2b93829fcf4bec7",
+            "INT3ETpxfNquuFa2czSHuFJTyhuepgXa":"0x3003ecf8bc25e26c292",
+            "INT3FLSfrYVyxeeJZBvoNcJiMzAbbc2i":"0x2f902022eb867cca1ae",
+            "INT3FcSg4P5NQsd8GhYRjXY76Tt9Q2Lr":"0x2faef163ab229a1c5ac",
+            "INT3H49CRxuaThaDzH1r2X4VSkmWkbo6":"0x2fb56e48b206f4ca6f2",
+            "INT3JqvEfW7eTymfA6mfruwipcc1dAEi":"0x2fdf81ec18db76cac28",
+            "INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL":"0x3029c0826d2f12dc115",
+            "INT3MjFkyK3bZ6oSCK8i38HVxbbsiRTY":"0x2f8d5435137bdefc4b6"
+        },
+        "total_delegateBalance":"0x115673e073a8936c00000",
+        "total_depositBalance":"0x0",
+        "total_depositProxiedBalance":"0x0",
+        "total_pendingRefundBalance":"0x0",
+        "total_proxiedBalance":"0x21e19e0c9bab2400000",
+        "total_rewardBalance":"0x23e88e9e80251775220d"
+    }
+}
+```
+
 ## int_getTransactionCount
 
 Returns the number of transactions *sent* from an address.
