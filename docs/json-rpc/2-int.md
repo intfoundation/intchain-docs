@@ -4,27 +4,6 @@ order: 2
 
 # Namespace `int` 
 
-## int_protocolVersion
-Returns the current intchain protocol version.
-
-#### Parameters
-None
-
-#### Returns
-
-`STRING` - The current intchain protocol version.
-
-#### Example
-
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_protocolVersion","params":[],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{"jsonrpc":"2.0","id":1,"result":"0x40"}
-```
-
-
 ## net_version
 Returns the current network id.
 
@@ -87,11 +66,29 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":
 {"jsonrpc":"2.0","id":1,"result":"0x1"}
 ```
 
+## int_protocolVersion
+Returns the current intchain protocol version.
+
+#### Parameters
+None
+
+#### Returns
+
+`STRING` - The current intchain protocol version.
+
+#### Example
+
+```bash
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_protocolVersion","params":[],"id":1}' -H 'content-type: application/json;'
+
+// Result
+{"jsonrpc":"2.0","id":1,"result":"0x40"}
+```
 
 ## int_syncing
 
 Returns an object with data about the sync status or `false`.
-
 
 #### Parameters
 None
@@ -129,7 +126,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_syncing","params":[],"id":1}
 
 Returns the client coinbase address.
 
-
 #### Parameters
 None
 
@@ -151,7 +147,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_coinbase","params":[],"id":1
 // Or error when the node is not a validator node
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"private validator missing"}}
 ```
-
 
 ## int_mining
 
@@ -195,9 +190,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_gasPrice","params":[],"id":1
 ```
 
 ## int_accounts
-
 Returns a list of addresses owned by client.
-
 
 #### Parameters
 None
@@ -225,14 +218,12 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_accounts","params":[],"id":1
 ```
 
 ## int_blockNumber
-
 Returns the number of most recent block.
 
 #### Parameters
 None
 
 #### Returns
-
 `QUANTITY` - Integer of the current block number the client is on.
 
 #### Example
@@ -246,11 +237,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_blockNumber","params":[],"id
 
 
 ## int_getBalance
-
 Returns the balance of the account of given address.
 
 #### Parameters
-
 1. `STRING`, 32 Bytes - address to check for balance.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
@@ -263,9 +252,7 @@ params: [
 ```
 
 #### Returns
-
 `QUANTITY` - integer of the current balance in wei.
-
 
 #### Example
 ```bash
