@@ -100,7 +100,7 @@ Please refer to [Staking Rewards Calculation Formula](1-general-concepts.md#stak
 
 3. `Add a PGP key` to your Keybase account (I believe you will see this option after sign-up), and you will get a 16-digit string
 
-4. [Edit your validator](TODO) and specify `identity:<the_16_digit_string>`
+4. [Edit your validator](../json-rpc/4-tdm.md#tdm_editvalidator) and specify `identity:<the_16_digit_string>`
 
 ## Common Problems
 

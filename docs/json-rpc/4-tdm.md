@@ -87,7 +87,7 @@ Returns the next epoch votes, empty if the next epoch vote is nil.
 #### Parameters
 None
 
-#### Returns // TODO add no empty votes
+#### Returns
 `Object` - Next epoch votes object
 * `voteForEpoch`: 'QUANTITY' - Integer of next epoch number.
 * `startBlock`: `QUANTITY` - The start block number of next epoch.
@@ -110,7 +110,7 @@ Returns the next epoch votes, empty if the next epoch vote is nil.
 #### Parameters
 None
 
-#### Returns // TODO add no empty votes
+#### Returns
 `Validators` - The validator list of next epoch.
 
 #### Example
@@ -197,7 +197,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tdm_getValidatorStatus","params"
 {"jsonrpc":"2.0","id":1,"result":{"isForbidden":false}}
 ```
 
-## tdm_unForbid  // TODO add success response
+## tdm_unForbid
 Remove the forbidden validator from the forbidden list, if the validator has benn forbidden for 24 hours.
 
 #### Parameters
@@ -213,7 +213,7 @@ Remove the forbidden validator from the forbidden list, if the validator has ben
 curl -X POST --data '{"jsonrpc":"2.0","method":"tdm_unForbid","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL"],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"should not unforbid"}}
+{"jsonrpc":"2.0","id":1,"result":"0xf461b38a5e4e4a6634b16626b317911c85db513d36aa91f67d117666eafc9a44"}
 ```
 
 ## tdm_editValidator
@@ -239,7 +239,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tdm_editValidator","params":["IN
 {"jsonrpc":"2.0","id":1,"result":"0x30a555d3707e03da13680228d076d996d4f32ff533d69f565dc13587333e45bb"}
 ```
 
-## tdm_getConsensusPublicKey // TODO remove empty consensus public key
+## tdm_getConsensusPublicKey
 Returns the list of BLS public keys were participating in the consensus of the block which contains the extra data.
 
 #### Parameters
