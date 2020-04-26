@@ -1332,7 +1332,7 @@ Returns the account- and storage-values of the specified account including the M
 
 1. `STRING`, 32 bytes - address of the account or contract
 2. `ARRAY`, 32 Bytes - array of storage-keys which should be proofed and included. See int_getStorageAt
-3. `QUANTITY|TAG` - integer block number, or the string "latest" or "earliest", see the default block parameter
+3. `QUANTITY|TAG` - integer block number, or the string "latest" or "earliest", see the [default block parameter](#the-default-block-parameter).
 
 
 #### Example Parameters
@@ -1397,3 +1397,21 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getProof","params":["INT3HGH
   }
 }
 ```
+
+## The default block parameter
+
+The following methods have an extra default block parameter:
+
+- [int_getBalance](#int_getbalance)
+- [int_getCode](#int_getcode)
+- [int_getTransactionCount](#int_gettransactioncount)
+- [int_call](#int_call)
+
+When requests are made that act on the state of intchain, the last default block parameter determines the height of the block.
+
+The following options are possible for the defaultBlock parameter:
+
+- `HEX String` - an integer block number
+- `String "earliest"` for the earliest/genesis block
+- `String "latest"` - for the latest mined block
+- `String "pending"` - for the pending state/transactions

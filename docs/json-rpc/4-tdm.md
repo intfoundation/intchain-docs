@@ -89,7 +89,7 @@ None
 
 #### Returns
 `Object` - Next epoch votes object
-* `voteForEpoch`: 'QUANTITY' - Integer of next epoch number.
+* `voteForEpoch`: `QUANTITY` - Integer of next epoch number.
 * `startBlock`: `QUANTITY` - The start block number of next epoch.
 * `endBlock`: `QUANTITY` - The end block number of next epoch.
 * `votes`: `ARRAY` - The votes list of next epoch.
