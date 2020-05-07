@@ -636,7 +636,7 @@ See [int_call](#int_call) parameters, expect that all properties are optional. I
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_estimateGas","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}, "latest"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_estimateGas","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
