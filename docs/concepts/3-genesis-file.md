@@ -4,7 +4,7 @@ order: 3
 
 # Genesis File
 
-The Genesis file (`<datadir>/intchain/genesis.json and <datadir>/intchain/int_genesis.json`) is the basis for the entire network initialization, which contains most info for creating a Genesis block (such as ChainID, consensus params, initial account balances, and validators info).
+The Genesis file (`<datadir>/<chainid>/genesis.json and <datadir>/<chainid>/int_genesis.json`) is the basis for the entire network initialization, which contains most info for creating a Genesis block (such as ChainID, consensus params, initial account balances, and validators info).
 The genesis file sets the initial parameters of any new INT Chain network. Establishing a robust social consensus over the genesis file is critical to start a network.
 
 Each genesis state starts with a list of account balances. Social consensus on these account balances must be bootstrapped from some external process be it events on another blockchain to a token generation event.

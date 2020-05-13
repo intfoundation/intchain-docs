@@ -41,7 +41,7 @@ After a validator is registered, they can be in three states:
 
 It is really **IMPORTANT** to backup your validator private key carefully, it's the only way to restore your validator. Note the validator private key is a [Tendermint Key](#tendermint-key)
 
-If you are using the software sign (which is the default signing method of tendermint), your [Tendermint Key](#tendermint-key) is located in `<datadir>/intchain/priv_validator.json`. The easiest way is to backup the whole file.
+If you are using the software sign (which is the default signing method of tendermint), your [Tendermint Key](#tendermint-key) is located in `<datadir>/<chainid>/priv_validator.json`. The easiest way is to backup the whole file.
 
 
 ### How to migrate the validator
@@ -58,11 +58,15 @@ There are many ways to migrate your validator, the most recommended way is:
 
 ### What is 'self-delegation'? How can I increase my 'self-delegation'
 
-Self-delegation is delegation from a validator to himself. This amount can be increased by sending a `delegate` transaction from your validator's operator account which you used to create the validator.
+Self-delegation is delegation from a validator to himself. This amount can be increased by sending a [delegate](../json-rpc/2-int.md#int_delegate) transaction from your validator's operator account which you used to create the validator.
 
-### Is there a minimum amount of INT that must be delegated to be an active validator
+### Is there a minimum amount of INT that register needs
 
-The minimum amount is `100000 INT`.
+The minimum amount is `10000 INT`.
+
+### Is there a minimum amount of INT to be delegated to the candidates
+
+The minimum amount is `1000 INT`.
 
 ### Can a validator run away with their delegators' funds
 
@@ -100,7 +104,7 @@ Please refer to [Staking Rewards Calculation Formula](1-general-concepts.md#stak
 
 3. `Add a PGP key` to your Keybase account (I believe you will see this option after sign-up), and you will get a 16-digit string
 
-4. [Edit your validator](../json-rpc/4-tdm.md#tdm_editvalidator) and specify `identity:<the_16_digit_string>`
+4. [Edit your validator](../json-rpc/2-int.md#int_editvalidator) and specify `identity:<the_16_digit_string>`
 
 ## Common Problems
 
@@ -119,8 +123,8 @@ If they are not the same, it means you are running a Full Node other than the Va
 then you can do these:
 
 - Stop the node
-- Replace the current `<datadir>/intchain/priv_validator.json` with the one you backed up
-- Confirm the `Consensus Pubkey` is correct via `<datadir>/intchain/priv_validator.json`
+- Replace the current `<datadir>/<chainid>/priv_validator.json` with the one you backed up
+- Confirm the `Consensus Pubkey` is correct via `<datadir>/<chainid>/priv_validator.json`
 - Start the node
 
 #### What if I lost my Tendermint Key

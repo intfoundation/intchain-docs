@@ -23,7 +23,7 @@ documentation for individual namespaces in the sidebar.
 | Chain Name | Chain ID |               URL              |
 |:-----------|----------|--------------------------------|
 | Main Chain | intchain | http://localhost:8555/intchain |
-| Test Chain | testnet  | http://localhost:8556/testnet  |
+| Test Chain | testnet  | http://localhost:8555/testnet  |
 
 ## HTTP Server
 
@@ -45,7 +45,7 @@ and debugging ("debug"), they must be configured via the `--rpcapi` flag. We do
 not recommend enabling such APIs over HTTP, however, since access to these
 methods increases the attack surface.
 
-    intchain --rpc --rpcapi personal,int,net,web3,chain,tdm,del
+    intchain --rpc --rpcapi personal,int,net,web3
 
 Since the HTTP server is reachable from any local application, additional
 protection is built into the server to prevent misuse of the API from web pages.
@@ -61,7 +61,7 @@ enable WebSocket access, use `--ws` flag. The default WebSocket port is 8546.
 The `--wsaddr`, `--wsport` and `--wsapi` flags can be used to customize settings
 for the WebSocket server.
 
-    intchain --ws --wsport 8556 --wsapi int,net,web3,chain,tdm,del
+    intchain --ws --wsport 8556 --wsapi int,net,web3
 
 Cross-Origin request protection also applies to the WebSocket server. Use the
 `--wsorigins` flag to allow access to the server from web pages:

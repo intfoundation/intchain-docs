@@ -16,12 +16,12 @@ For testing or developing purpose, you may want to setup a local testnet.
 We use the default [home directory](1-intro.md#home-directory) for all the following examples
 :::
 
-### intchain init_int_genesis 
+### intchain init-intchain
 
 Initialize the int_genesis.json file that will help you to bootstrap the network.
 
 ```bash
-intchain --testnet init_int_genesis "{1000000000000000000000000000, 100000000000000000000000}"
+intchain --testnet init-intchain "{1000000000000000000000000000, 100000000000000000000000}"
 ```
 
 
