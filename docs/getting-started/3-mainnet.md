@@ -50,7 +50,7 @@ intchain createValidator <address>
 ### Confirm your node has caught-up
 
 ```bash
-intchain attach <datadir>/intchain/intchain.ipc
+intchain attach <datadir>/<chainid>/intchain.ipc
 >int.blockNumber
 ```
 
