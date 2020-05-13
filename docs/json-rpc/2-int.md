@@ -267,7 +267,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalance","params":["INT3H
 }
 ```
 
-## int_getFullBalance
+## int_getBalanceDetail
 
 Returns the balance of the account of given address.
 
@@ -289,20 +289,20 @@ params: [
 #### Returns
 `Object` - Balance and reward detail object:
 - `balance`: `QUANTITY` - Integer of the current balance in int-atto.
-- `proxied_detail`: `Object` - Detail record of each address's proxied data, including proxied balance, deposit proxied balance and pending refund balance.
-- `reward_detail`: `Object` - Detail record of each delegate address and reward balance in int-atto.
-- `total_delegateBalance`: `QUANTITY` - Total delegate balance in int-atto to other address.
-- `total_depositBalance`: `QUANTITY` - Deposit balance in int-atto for validator stake.
-- `total_depositProxiedBalance`: `QUANTITY` - Total deposit proxied balance in int-atto for validator stake.
-- `total_pendingRefundBalance`: `QUANTITY` - Total pending refund balance in int-atto which will be return to delegate at the end of current epoch.
-- `total_proxiedBalance`: `QUANTITY` - Total proxied balance in int-atto delegate from other address.
-- `total_rewardBalance`: `QUANTITY` - Total pending reward balance in int-atto of this address.
+- `proxiedDetail`: `Object` - Detail record of each address's proxied data, including proxied balance, deposit proxied balance and pending refund balance.
+- `rewardDetail`: `Object` - Detail record of each delegate address and reward balance in int-atto.
+- `delegateBalance`: `QUANTITY` - Total delegate balance in int-atto to other address.
+- `depositBalance`: `QUANTITY` - Deposit balance in int-atto for validator stake.
+- `depositProxiedBalance`: `QUANTITY` - Total deposit proxied balance in int-atto for validator stake.
+- `pendingRefundBalance`: `QUANTITY` - Total pending refund balance in int-atto which will be return to delegate at the end of current epoch.
+- `proxiedBalance`: `QUANTITY` - Total proxied balance in int-atto delegate from other address.
+- `rewardBalance`: `QUANTITY` - Total pending reward balance in int-atto of this address.
 
 
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getFullBalance","params":["INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4", "latest", true],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalanceDetail","params":["INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4", "latest", true],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
