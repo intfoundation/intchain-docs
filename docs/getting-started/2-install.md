@@ -36,6 +36,7 @@ go version
 
 After setting up `go` correctly, you should be able to compile and run `intchain`.
 
+Clone the source code of intchain and checkout the testnet branch, then make intchain.
 
 ```bash
 git clone --branch testnet https://github.com/intfoundation/intchain
