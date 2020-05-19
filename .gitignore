@@ -1,6 +1,9 @@
 # IDE
 .idea
 
+# macOS FS
+.DS_Store
+
 # node modules
 node_modules
 yarn.lock
