@@ -50,6 +50,11 @@ module.exports = {
             lang: "简体中文",
             title: "INT Chain 4.0 文档",
             description: "INT Chain 4.0 文档",
+        },
+        "/fr/": {
+            lang: "fr-FR",
+            title: "Documentation INT Chain 4.0",
+            description: "Documentation INT Chain 4.0",
         }
     },
     themeConfig: {
@@ -87,6 +92,24 @@ module.exports = {
                 }],
                 sidebar: sidebar("", [
                     ["快速开始", "/zh/getting-started"]
+                ])
+            },
+            "/fr/": {
+                selectText: 'Langues',
+                label: 'Français',
+                editLinkText: 'Aidez-nous à améliorer cette page !',
+                nav: [
+                    {
+                        text: 'Site INT Chain',
+                        link: 'https://intchain.io'
+                    }
+                ],
+                sidebar: sidebar("", [
+                    ["Pour Commencer", "/fr/getting-started"],
+                    ["Concepts de Base", "/fr/concepts"],
+                    ["Généralités", "/fr/features"],
+                    ["Utiliser INTChain", "/fr/using-intchain"],
+                    ["JSON RPC", "/fr/json-rpc"]
                 ])
             }
         },
