@@ -8,11 +8,11 @@ order: 1
 
 ### Full Node
 
-A full-node is a program that fully validates transactions and blocks of a blockchain. It is necessary in order to be a validator. 
+A full-node should validate all transactions and blocks. It is necessary for the blockchain system.
 
 ### Validator Node
 
-The [intchain](../getting-started/1-intro.md#int-chain) references [Ethereum](https://ethereum.org/) and [Tendermint](https://tendermint.com/docs/introduction/what-is-tendermint.html), which relies on a set of validators to secure the network. The role of validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private keys. Validators commit new blocks to the blockchain and receive revenue in exchange for their work. They must also participate in governance by voting on proposals. Validators are weighted according to their total stake.
+ The role of validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private keys. Validators commit new blocks to the blockchain and receive reward. They must also participate in governance by voting on proposals. Validators are weighted according to their total stake.
 
 ### Validator Candidate Node
 
@@ -33,19 +33,12 @@ Delegators are INT holders who cannot, or do not want to run a validator themsel
 
 The INT Chain has its own native token known as *INT*.  It is designed to serve two purposes in the network.
 
-- **Staking.** Similar to the ATOM token in the Cosmos Hub, the INT token will be used as a staking token to secure the IPBFT blockchain.
+- **Staking.** Similar to the INT token in the INT Chain 3.0, the INT token will be used as a staking token to secure the IPBFT blockchain.
 - **Transaction Fee.** The INT token will also be used to pay fees for all transactions in the INT Chain network.
 
 
 ## Staking Rewards
 
-**Block Inflation**
-
-  Block Inflation exists to incentivize INT holders to stake. The more staked INT tokens are, more secure the network become(Read more about [Staking](../features/stake.md)).
-
-  Block Inflation will be [distributed every block](../features/mint.md). [Inflation rate](../features/mint.md) in INT Chain will be constant 2.5% for ten years and initial circulation is 0.8 billion.
-  In this way, 0.2 billion INT will devalue in ten years.
-  
 The validator and its delegators can share the following rewards by proportion:
 
 - **Block Reward**

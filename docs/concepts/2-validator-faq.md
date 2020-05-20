@@ -26,7 +26,7 @@ To earn more delegation for your validator, you are advised to:
 
 ### What are hardware requirements
 
-The minimum hardware requirements are mentioned here: [Hardware Requeirment](../daemon/intro.md#hardware-requeirment)
+The minimum hardware requirements are mentioned here: [Hardware Requeirment](../using-intchain/1-intro.md#hardware-requeirment)
 
 ### What are the different states a validator can be in
 
@@ -39,9 +39,9 @@ After a validator is registered, they can be in three states:
 
 ### How to backup the validator
 
-It is really **IMPORTANT** to backup your validator private key carefully, it's the only way to restore your validator. Note the validator private key is a [Tendermint Key](#tendermint-key)
+It is really **IMPORTANT** to backup your validator private key carefully, it's the only way to restore your validator.
 
-If you are using the software sign (which is the default signing method of tendermint), your [Tendermint Key](#tendermint-key) is located in `<datadir>/<chainid>/priv_validator.json`. The easiest way is to backup the whole file.
+If you are using the software sign , your validator key is located in `<datadir>/<chainid>/priv_validator.json`. The easiest way is to backup the whole file.
 
 
 ### How to migrate the validator
@@ -63,10 +63,6 @@ Self-delegation is delegation from a validator to himself. This amount can be in
 ### Is there a minimum amount of INT that register needs
 
 The minimum amount is `10000 INT`.
-
-### Is there a minimum amount of INT to be delegated to the candidates
-
-The minimum amount is `1000 INT`.
 
 ### Can a validator run away with their delegators' funds
 
@@ -114,11 +110,11 @@ Compare the two `Consensus Pubkey`:
 
 - From [Explorer](http://titansexplorer.intchain.io/#/staking/validators), you can find the `Consensus Pubkey` which you declared for your validator in the Validator Detail page.
 
-- Check the `Consensus Pubkey` which you are now using via `<datadir>/intchain/priv_validator.json`
+- Check the `Consensus Pubkey` which you are now using via `<datadir>/<ch>/priv_validator.json`
 
 If they are not the same, it means you are running a Full Node other than the Validator.
 
-#### You'd better have backed up your [Tendermint Key](#how-to-backup-the-validator)
+#### You'd better have backed up your [validator key](#how-to-backup-the-validator)
 
 then you can do these:
 
@@ -127,10 +123,12 @@ then you can do these:
 - Confirm the `Consensus Pubkey` is correct via `<datadir>/<chainid>/priv_validator.json`
 - Start the node
 
-#### What if I lost my Tendermint Key
+#### What if I lost my validator Key
 
 You can create a new [priv_validator.json](../getting-started/3-mainnet.md#create-bls-keys) with the validator address.
 
-## Community Channels
+<!--
+## Community Channel
 
 - INT Validator Working Group: (Pending)
+-->
