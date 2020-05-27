@@ -31,7 +31,7 @@ COMMANDS:
    bug               opens a window to report a bug on the intchain repo
    console           Start an interactive JavaScript environment
    copydb            Create a local chain from a target chaindata folder
-   create-validator  create-validator address
+   create-validator  Create validator address
    dump              Dump a specific block from storage
    dumpconfig        Show configuration values
    export            Export blockchain into file

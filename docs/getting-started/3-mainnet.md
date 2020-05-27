@@ -41,11 +41,17 @@ backup the keystore in a safe place and remember your password!
 
 ### Create BLS keys
 
-Once you create a private validator, it will create a json file priv_validator.json under datadir and restart intchain.
+Once you create a private validator, it will create a json file `priv_validator.json` under `datadir` and restart `intchain`.
 
 ```bash
-intchain createValidator <address>
+intchain create-validator <address>
 ```
+
+Or for test network
+```bash
+intchain --testnet create-validator <address>
+```
+
 
 ### Confirm your node has caught-up
 
