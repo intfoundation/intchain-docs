@@ -45,11 +45,6 @@ module.exports = {
             lang: "en-US",
             title: "INT Chain 4.0 Documents",
             description: "INT Chain 4.0 Documents",
-        },
-        "/zh/": {
-            lang: "简体中文",
-            title: "INT Chain 4.0 文档",
-            description: "INT Chain 4.0 文档",
         }
     },
     themeConfig: {
@@ -75,18 +70,6 @@ module.exports = {
                     ["Common Features", "features"],
                     ["Using INTChain", "using-intchain"],
                     ["JSON RPC", "json-rpc"]
-                ])
-            },
-            "/zh/": {
-                selectText: '选择语言',
-                label: '简体中文',
-                editLinkText: '帮助我们完善此文档',
-                nav: [{
-                    text: 'INT Chain 官网',
-                    link: 'https://intchain.io'
-                }],
-                sidebar: sidebar("", [
-                    ["快速开始", "/zh/getting-started"]
                 ])
             }
         },
