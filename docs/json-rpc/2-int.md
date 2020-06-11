@@ -4,68 +4,6 @@ order: 2
 
 # Namespace `int` 
 
-## net_version
-Returns the current network id.
-
-#### Parameters
-None
-
-#### Returns
-
-`String` - The current network id.
-- `"8551"`: INT Chain Mainnet
-- `"8552"`: INT Chain Testnet
-
-#### Example
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{"jsonrpc":"2.0","id":1,"result":"8551"}
-```
-
-
-## net_listening
-
-Returns `true` if client is actively listening for network connections.
-
-#### Parameters
-None
-
-#### Returns
-
-`Boolean` - `true` when listening, otherwise `false`.
-
-#### Example
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{"jsonrpc":"2.0","id":1,"result":true}
-```
-
-## net_peerCount
-
-Returns number of peers currently connected to the client.
-
-##### Parameters
-none
-
-##### Returns
-
-`QUANTITY` - integer of the number of connected peers.
-
-##### Example
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{"jsonrpc":"2.0","id":1,"result":"0x1"}
-```
-
 ## int_protocolVersion
 Returns the current intchain protocol version.
 
@@ -1323,24 +1261,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getWork","params":[],"id":1}
 }
 ```
 
-## The default block parameter
-
-The following methods have an extra default block parameter:
-
-- [int_getBalance](#int_getbalance)
-- [int_getCode](#int_getcode)
-- [int_getTransactionCount](#int_gettransactioncount)
-- [int_call](#int_call)
-
-When requests are made that act on the state of intchain, the last default block parameter determines the height of the block.
-
-The following options are possible for the defaultBlock parameter:
-
-- `HEX String` - an integer block number
-- `String "earliest"` for the earliest/genesis block
-- `String "latest"` - for the latest mined block
-- `String "pending"` - for the pending state/transactions
-
 
 
 ## int_signAddress
@@ -1408,12 +1328,14 @@ Register to become a validator candidate.
 6. `gasPrice`: `QUANTITY` - (optional, default: To be determined) Integer of the gasPrice used for each paid gas.
 
 
+```bash
     params: [
         "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
         "0x21e19e0c9bab2400000",
         "6390......7771C",
         "0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b"
     ]
+```
 
 #### Returns
 `EpochNumber` - Integer of current epoch number.
@@ -1928,3 +1850,21 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenList","params":[
 // Result
 {"jsonrpc":"2.0","id":1,"result":{"forbiddenList":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"]}}
 ```
+
+## the default block parameter
+
+The following methods have an extra default block parameter:
+
+- [int_getBalance](#int_getbalance)
+- [int_getCode](#int_getcode)
+- [int_getTransactionCount](#int_gettransactioncount)
+- [int_call](#int_call)
+
+When requests are made that act on the state of intchain, the last default block parameter determines the height of the block.
+
+The following options are possible for the defaultBlock parameter:
+
+- `HEX String` - an integer block number
+- `String "earliest"` for the earliest/genesis block
+- `String "latest"` - for the latest mined block
+- `String "pending"` - for the pending state/transactions

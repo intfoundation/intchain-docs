@@ -66,7 +66,7 @@ INT Chain is a blockchain system based on IPBFT consensus mechanism, which requi
 
 Epoch is the update cycle of the validator, which is about 2 hours.
 
-You can [register](../json-rpc/2-int.md#int_register) to become a candidate.
+You can register (int_register under json rpc) to become a candidate.
 
 
 :::warning
