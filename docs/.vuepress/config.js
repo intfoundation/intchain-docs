@@ -46,11 +46,6 @@ module.exports = {
             title: "INT Chain 4.0 Documents",
             description: "INT Chain 4.0 Documents",
         },
-        "/zh/": {
-            lang: "简体中文",
-            title: "INT Chain 4.0 文档",
-            description: "INT Chain 4.0 文档",
-        },
         "/fr/": {
             lang: "fr-FR",
             title: "Documentation INT Chain 4.0",
