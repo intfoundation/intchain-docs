@@ -6,12 +6,12 @@ order: 2
 
 ## Latest Version
 
-The latest INT Chain version for Testnet is [v4.0.2](https://github.com/intfoundation/intchain)
+The latest INT Chain version for Testnet is [v4.0.3](https://github.com/intfoundation/intchain)
 
 ## Install `go`
 
 ::: tip
-**Go 1.12.5+** is required for building and installing the INT Chain software.
+**Go 1.13.11+** is required for building and installing the INT Chain software.
 :::
 
 Install `go` by following the [official docs](https://golang.org/doc/install).

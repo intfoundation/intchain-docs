@@ -23,7 +23,7 @@ USAGE:
    intchain [options] command [command options] [arguments...]
    
 VERSION:
-   4.0.2
+   4.0.3
    
 COMMANDS:
    account           Manage accounts
