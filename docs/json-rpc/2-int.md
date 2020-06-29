@@ -1321,7 +1321,7 @@ Register to become a validator candidate.
 
 #### Parameters
 1. `from`: `STRING`, 32 Bytes - The address the transaction is send from.
-2. `registerAmount`: `QUANTITY` - Integer of the register amount of INT (minimum 10,000 INT `0x3635c9adc5dea00000`).
+2. `registerAmount`: `QUANTITY` - Integer of the register amount of INT (minimum 10,000 INT `0x21e19e0c9bab2400000`).
 3. `pubkey`: `DATA`, 128 Bytes - The BLS public key.
 4. `signature`: `DATA`, 64 Bytes - The BLS signature for the from address.
 5. `commission`: `QUANTITY` - Integer of commission fee percentage (between 0 ~ 100) of each block reward be charged from delegator, when candidate become a validator.
