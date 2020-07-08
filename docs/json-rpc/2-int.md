@@ -1289,32 +1289,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_signAddress","params":["INT3
 {"jsonrpc":"2.0","id":1,"result":"0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b"}
 ```
 
-## int_withdrawReward
-Withdraw the staking reward from delegate address.
-
-#### Parameters
-   1. `from`: `STRING`, 32 Bytes - The address has voted.
-   2. `delegateAddress`: `STRING`, 32 Bytes - The delegate address.
-
-    params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
-        "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"
-    ]
-
-#### Returns
-`DATA`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
-
-
-#### Example
-
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{"jsonrpc":"2.0","id":1,"result":"0xcb92a3c46995d009f2d9721290366a4bb8f4f780ebf65aa04d9ff51fa9b92f3b"}
-```
-
 
 ## int_register
 Register to become a validator candidate.
@@ -1468,6 +1442,32 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_setCommission","params":["IN
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x0c96e71e100006b08f78ed4cf12a034bd96df49023cee5ad8a565389e2b2707c"}
+```
+
+## int_withdrawReward
+Withdraw the staking reward from delegate address.
+
+#### Parameters
+   1. `from`: `STRING`, 32 Bytes - The address has voted.
+   2. `delegateAddress`: `STRING`, 32 Bytes - The delegate address.
+
+    params: [
+        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"
+    ]
+
+#### Returns
+`DATA`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
+
+
+#### Example
+
+```bash
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"],"id":1}' -H 'content-type: application/json;'
+
+// Result
+{"jsonrpc":"2.0","id":1,"result":"0xcb92a3c46995d009f2d9721290366a4bb8f4f780ebf65aa04d9ff51fa9b92f3b"}
 ```
 
 
