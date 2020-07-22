@@ -32,6 +32,11 @@ You can create a new wallet or import an existing one, then get some INT from th
 intchain account new
 ```
 
+Or for test network
+```bash
+intchain --testnet account new
+```
+
 :::warning
 **Important**
 
