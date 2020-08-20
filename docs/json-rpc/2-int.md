@@ -1698,7 +1698,7 @@ Edit validator information.
         "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", 
         "INT Super Validator", 
         "https://intchain.io", 
-        "E1573E268A818503", 
+        "0568916658CBBE3F", 
         "INT to the moon"
     ]
 ```
@@ -1710,7 +1710,7 @@ Edit validator information.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_editValidator","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT Super Validator", "https://intchain.io", "E1573E268A818503", "INT to the moon"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_editValidator","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT Super Validator", "https://intchain.io", "0568916658CBBE3F", "INT to the moon"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x30a555d3707e03da13680228d076d996d4f32ff533d69f565dc13587333e45bb"}
