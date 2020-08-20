@@ -1690,7 +1690,7 @@ Edit validator information.
 1. `from`: `STRING`, 32 Bytes - The validator address.
 2. `moniker`: `STRING` - The validator name.
 3. `website`: `STRING` - The validator website.
-4. `identity`: `STRING` - The identity signature.
+4. `identity`: `STRING` - The identity signature, [please refer to validator's logo.](../concepts/2-validator-faq.md#how-to-upload-my-validators-logo-to-the-explorersgetting-started6-explorersmd)
 5. `details`: `STRING` - The validator introduction (maximum 100 Bytes).
 
 ```bash
