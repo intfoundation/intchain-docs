@@ -80,5 +80,5 @@ Additionally, validators are expected to be active members of the community. The
 
 ## Validator Risks
 
-- **Unavailability**: Validators are expected to keep signing votes for making new blocks. If a validator's signature has not been included in the latest block for more than 4 hours (about 2 epochs), this validator will be forbidden and removed from next epoch validator set for 1 day.
-- **Double Sign**: If the protocol detects that a validator voted multiple different opinions about the same block (same height/round), or voted for different blocks at the same height/round, this validator will be forbidden and removed from next epoch validator set for 1 day.
+- **Unavailability**: Validators are expected to keep signing votes for making new blocks. If a validator's signature has not been included in the latest block for more than one epoch (about 2 hours), this validator will be forbidden and removed from next epoch validator set for two epochs.
+- **Double Sign**: If the protocol detects that a validator voted multiple different opinions about the same block (same height/round), or voted for different blocks at the same height/round, this validator will be forbidden and removed from next epoch validator set for two epochs.

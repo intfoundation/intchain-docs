@@ -1644,28 +1644,31 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_createValidator","params":["
 }
 ```
 
-## int_getValidatorStatus
-Returns the validator forbidden status.
+## int_getForbiddenStatus
+Returns the forbidden status.
 
 #### Parameters
 1. `address`: `STRING`, 32 Bytes - The validator address.
+2. `blockNumber`: `QUANTITY|TAG` - Integer block number, or the string "latest", "earliest" or "pending"
 
 #### Returns
-`Object` - Validator forbidden status
-* `isForbidden`: `BOOL` - True if the validator is forbidden, otherwise false.
+`Object` - Forbidden status
+* `blocks`: `BOOL` - Integer of mined blocks current epoch.
+* `forbidden`: `BOOL` - True if the address is forbidden, otherwise false.
+* `forbiddenEpoch`: `QUANTITY` - Integer of forbidden epoch number.
 
 #### Example
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getValidatorStatus","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenStatus","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL", "latest"],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":{"isForbidden":false}}
+{"jsonrpc":"2.0","id":1,"result":{"blocks":0,"forbidden":true,"forbiddenEpoch":2}}
 ```
 
 ## int_unForbidden
-Remove the forbidden validator from the forbidden list, if the validator has benn forbidden for 2 epochs.
+Remove the forbidden validator from the forbidden list, if the validator has been forbidden for 2 epochs.
 
 #### Parameters
 1. `address`: `STRING`, 32 Bytes - The validator address.
