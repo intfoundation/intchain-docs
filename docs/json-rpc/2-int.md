@@ -1664,8 +1664,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getValidatorStatus","params"
 {"jsonrpc":"2.0","id":1,"result":{"isForbidden":false}}
 ```
 
-## int_unForbid
-Remove the forbidden validator from the forbidden list, if the validator has benn forbidden for 24 hours.
+## int_unForbidden
+Remove the forbidden validator from the forbidden list, if the validator has benn forbidden for 2 epochs.
 
 #### Parameters
 1. `address`: `STRING`, 32 Bytes - The validator address.
@@ -1677,7 +1677,7 @@ Remove the forbidden validator from the forbidden list, if the validator has ben
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_unForbid","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_unForbidden","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xf461b38a5e4e4a6634b16626b317911c85db513d36aa91f67d117666eafc9a44"}
