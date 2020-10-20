@@ -24,6 +24,27 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_protocolVersion","params":[]
 {"jsonrpc":"2.0","id":1,"result":"0x40"}
 ```
 
+## int_chainId
+Returns the current intchain identity.
+
+#### Parameters
+None
+
+#### Returns
+
+`STRING` - The current intchain identity.
+
+#### Example
+
+```bash
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_chainId","params":[],"id":1}' -H 'content-type: application/json;'
+
+// Result
+{"jsonrpc":"2.0","id":1,"result":"0x1"}
+```
+
+
 ## int_syncing
 
 Returns an object with data about the sync status or `false`.
