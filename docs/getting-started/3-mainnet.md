@@ -25,7 +25,7 @@ It will take a long time to sync block data.
 
 ### Create a Wallet
 
-You can create a new wallet or import an existing one, then get some INT from the exchanges or anywhere else into the wallet you just created, .e.g.
+You can create a new wallet or import an existing one, then get some INT from the exchanges or anywhere else into the wallet you just created .e.g.
 
 ```bash
 # create a new wallet
@@ -40,13 +40,14 @@ intchain --testnet account new
 :::warning
 **Important**
 
-backup the keystore in a safe place and remember your password! 
+Backup the keystore in a safe place and remember your password!  
+The default storage path of your keystore is "~/.intchain/intchain/keystore", and testnet storage is "~/.intchain/testnet/keystore".
 :::
 
 
 ### Create BLS keys
 
-Once you create a private validator, it will create a json file `priv_validator.json` under `datadir` and restart `intchain`.
+If you want become a validator, you need create a BLS keys which is a json file named `priv_validator.json` under `datadir` first, and then restart `intchain`.
 
 ```bash
 intchain create-validator <address>
@@ -80,4 +81,4 @@ You can register (int_register under json rpc) to become a candidate.
 Backup the `priv_validator.json` directory located in your datadir carefully! It is the only way to recover your validator.
 :::
 
-If there are no errors, then your node is now a validator in the next epoch (depending on whether your delegation amount is in the top 100 validators)(the max validator size will increase to 100) or candidate.
+If there are no errors, then your node will become a validator  (depending on whether your delegation amount is in the top 25 validators) or candidate in the next epoch.

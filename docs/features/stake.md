@@ -29,7 +29,7 @@ Usually, a validator operator not only has delegation on its own validator, but 
 
 ### Validator Candidates
 
-The quantity of validators can't increase infinitely. Too many validators may result in low efficient consensus which slows down the blockchain TPS. So IPBFT blockchain network will have a limiation to the validator quantity. Usually, the value is 100. If more than 100 full nodes apply to join validator set. Then only these nodes with top 100 most bonded tokens will be real validators. Others will be validator candidates and will be descending sorted according to their bonded token amount. Once the one or more validators are kicked out from validator set, then the top candidates will be added into validator set at next epoch.
+The quantity of validators can't increase infinitely. Too many validators may result in low efficient consensus which slows down the blockchain TPS. So IPBFT blockchain network will have a limiation to the validator quantity. Usually, the value is 25. If more than 25 full nodes apply to join validator set. Then only these nodes with top 25 most bonded tokens will be real validators. Others will be validator candidates and will be descending sorted according to their bonded token amount. Once the one or more validators are kicked out from validator set, then the top candidates will be added into validator set at next epoch.
 
 ### Delegate && UnDelegate && UnDelegating Period
 
@@ -58,22 +58,22 @@ The rewards come from token inflation and transaction fee. As for how to calcula
 
 - Register to be a candidate
 
-  Please refer to [Upgrade to Validator Node](../getting-started/3-mainnet.md#become-a-candidate).
+  Please refer to [Start Validator Node](../getting-started/3-mainnet.md#become-a-candidate).
 
 - Edit validator 
 
-  Please refer to [Edit validator](../json-rpc/2-int.md#int_editvalidator).
+  Please refer to [Edit validator](../json-rpc/2-int.md#int-editvalidator).
 
 - Increase self-delegation
   
-  Please refer to [Delegate](../json-rpc/2-int.md#int_delegate), the candidate should be yourself.
+  Please refer to [Delegate](../json-rpc/2-int.md#int-delegate), the candidate should be yourself.
 
 - Delegate tokens to other validators
 
   If you just want to be a delegator, you can skip the above steps.
 
-  Please refer to [Delegate](../json-rpc/2-int.md#int_delegate).
+  Please refer to [Delegate](../json-rpc/2-int.md#int-delegate).
 
 - Undelegate tokens from a validator
 
-  Please refer to [UnDelegate](../json-rpc/2-int.md#int_undelegate).
+  Please refer to [UnDelegate](../json-rpc/2-int.md#int-undelegate).

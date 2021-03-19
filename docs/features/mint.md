@@ -28,7 +28,7 @@ This is the reward calculation equation:
 
 The value of `baseAmount` is specified in genesis file.
 By default its value `800000000INT`(0.8 billion `int`, `1 int` equals `1*10^18 int-atto`), and its value will never be changed.
-Suppose `blockCostTime` is 1 second, and `rate` is `2.5%`, then the blockReward amount will be `634195839675291700 int-atto` (`0.6341958396752917 int`)
+Suppose `blockCostTime` is 3 second, and `rate` is `2.5%`, then the blockReward amount will be `1902587519025875000 int-atto` (`1.902587519025875 int`)
 
 ## Impact to users
 

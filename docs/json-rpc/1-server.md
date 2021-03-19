@@ -22,8 +22,8 @@ documentation for individual namespaces in the sidebar.
 
 | Chain Name | Chain ID |               URL              |
 |:-----------|----------|--------------------------------|
-| Main Chain | intchain | http://localhost:8555/intchain |
-| Test Chain | testnet  | http://localhost:8555/testnet  |
+| Main Chain |    1024 | http://localhost:8555 |
+| Test Chain |   2048  | http://localhost:8555 |
 
 ## HTTP Server
 

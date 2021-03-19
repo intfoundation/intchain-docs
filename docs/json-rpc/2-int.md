@@ -41,7 +41,7 @@ None
 curl -X POST --data '{"jsonrpc":"2.0","method":"int_chainId","params":[],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":"0x1"}
+{"jsonrpc":"2.0","id":1,"result":"0x400"}
 ```
 
 
@@ -90,7 +90,7 @@ None
 
 #### Returns
 
-`STRING`, 32 bytes - the current coinbase address.
+`STRING`, 20 bytes - the current coinbase address.
 
 #### Example
 ```bash
@@ -101,7 +101,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_coinbase","params":[],"id":1
 {
   "id":64,
   "jsonrpc": "2.0",
-  "result": "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"
+  "result": "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"
 }
 // Or error when the node is not a validator node
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"private validator missing"}}
@@ -156,7 +156,7 @@ None
 
 #### Returns
 
-`Array of STRING`, 32 Bytes - addresses owned by the client.
+`Array of STRING`, 20 Bytes - addresses owned by the client.
 
 #### Example
 ```bash
@@ -168,10 +168,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_accounts","params":[],"id":1
     "jsonrpc":"2.0",
     "id":1,
     "result":[
-        "INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z",
-        "INT3MMzkukxhiPwDLqkexCxzuYief4Js",
-        "INT39iewq2jAyREvwqAZX4Wig5GVmSsc",
-        "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs"
+        "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
+        "0x4fb47b878d1ebaa9e838295d305c928783c3442f",
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
+        "0x9ddc9c979f8f8d3d98601b05c4f71b504663640a"
     ]
 }
 ```
@@ -199,24 +199,24 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_blockNumber","params":[],"id
 Returns the balance of the account of given address.
 
 #### Parameters
-1. `STRING`, 32 Bytes - address to check for balance.
+1. `STRING`, 20 Bytes - address to check for balance.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
 #### Example Parameters
 ```
 params: [
-   'INT3HGH5oAByC1ni3yccBKrrLcNTZry7',
+   '0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec',
    'latest'
 ]
 ```
 
 #### Returns
-`QUANTITY` - integer of the current balance in wei.
+`QUANTITY` - integer of the current balance in int-atto.
 
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalance","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "latest"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalance","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "latest"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
@@ -232,14 +232,14 @@ Returns the balance of the account of given address.
 
 #### Parameters
 
-1. `STRING`, 32 Bytes - address to check for balance.
+1. `STRING`, 20 Bytes - address to check for balance.
 2. `QUANTITY|TAG` - Integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 3. `BOOL` - If true it returns the full detail of proxied/reward object under this address.
 
 #### Example Parameters
 ```
 params: [
-   'INT3HGH5oAByC1ni3yccBKrrLcNTZry7',
+   '0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec',
    'latest',
    true
 ]
@@ -261,43 +261,41 @@ params: [
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalanceDetail","params":["INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4", "latest", true],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBalanceDetail","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "latest", true],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
     "jsonrpc":"2.0",
     "id":1,
     "result":{
-        "balance":"0x23c8f89ec521a046a34e1",
-        "proxied_detail":{
-            "INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4":{
-                "ProxiedBalance":"0x21e19e0c9bab2400000",
-                "DepositProxiedBalance":"0x0",
-                "PendingRefundBalance":"0x0"
-            }
+    "balance":"0xd3c21bcea6babdeb6000",
+    "delegateBalance":"0xd3c21bcecceda1000000",
+    "depositBalance":"0x0",
+    "depositProxiedBalance":"0xfe1c215e8f838e000000",
+    "pendingRefundBalance":"0x0",
+    "proxiedBalance":"0x0",
+    "proxiedDetail":{
+        "0x26ee0906f135303a0ab66b3196efabd0853c481b":{
+            "proxiedBalance":"0x0",
+            "depositProxiedBalance":"0x152d02c7e14af6800000",
+            "pendingRefundBalance":"0x0"
         },
-        "reward_detail":{
-            "INT32YViqoXKLjRnp2rB7F8dXWUQMFhN":"0x2fb9bf3131752c86f3c",
-            "INT385MNAM44dwVJ4GUaqUbUTZqrMdHZ":"0x2fcaf8eb900a5a49de2",
-            "INT39iewq2jAyREvwqAZX4Wig5GVmSsc":"0x2fba5dd2e0852b7f930",
-            "INT3AV2Z33g3vcFz8n7jEKWsns8RbV6o":"0x2fece18054cd37ab5f2",
-            "INT3D4sNnoM4NcLJeosDKUjxgwhofDdi":"0x2fb3c378ea83674a435",
-            "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU":"0x11a2b93829fcf4bec7",
-            "INT3ETpxfNquuFa2czSHuFJTyhuepgXa":"0x3003ecf8bc25e26c292",
-            "INT3FLSfrYVyxeeJZBvoNcJiMzAbbc2i":"0x2f902022eb867cca1ae",
-            "INT3FcSg4P5NQsd8GhYRjXY76Tt9Q2Lr":"0x2faef163ab229a1c5ac",
-            "INT3H49CRxuaThaDzH1r2X4VSkmWkbo6":"0x2fb56e48b206f4ca6f2",
-            "INT3JqvEfW7eTymfA6mfruwipcc1dAEi":"0x2fdf81ec18db76cac28",
-            "INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL":"0x3029c0826d2f12dc115",
-            "INT3MjFkyK3bZ6oSCK8i38HVxbbsiRTY":"0x2f8d5435137bdefc4b6"
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec":{
+            "proxiedBalance":"0x0",
+            "depositProxiedBalance":"0xd3c21bcecceda1000000",
+            "pendingRefundBalance":"0x0"
         },
-        "total_delegateBalance":"0x115673e073a8936c00000",
-        "total_depositBalance":"0x0",
-        "total_depositProxiedBalance":"0x0",
-        "total_pendingRefundBalance":"0x0",
-        "total_proxiedBalance":"0x21e19e0c9bab2400000",
-        "total_rewardBalance":"0x23e88e9e80251775220d"
+        "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1":{
+            "proxiedBalance":"0x0",
+            "depositProxiedBalance":"0x152d02c7e14af6800000",
+            "pendingRefundBalance":"0x0"
+        }
+    },
+    "rewardBalance":"0x7e97f44d4b9d9dc9e15",
+    "rewardDetail":{
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec":"0x7e97f44d4b9d9dc9e15"
     }
+}
 }
 ```
 
@@ -308,13 +306,13 @@ Returns the number of transactions *sent* from an address.
 
 #### Parameters
 
-1. `STRING`, 32 Bytes - address.
+1. `STRING`, 20 Bytes - address.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
 #### Example Parameters
 ```bash
 params: [
-   'INT3HGH5oAByC1ni3yccBKrrLcNTZry7',
+   '0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec',
    'latest' // state at the latest block
 ]
 ```
@@ -327,7 +325,7 @@ params: [
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getTransactionCount","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7","latest"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getTransactionCount","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec","latest"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
@@ -420,7 +418,7 @@ Returns code at a given address.
 #### Example Parameters
 ```
 params: [
-   'INT3HGH5oAByC1ni3yccBKrrLcNTZry7',
+   '0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec',
    '0x2'  // 2
 ]
 ```
@@ -433,7 +431,7 @@ params: [
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getCode","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "0x2"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_getCode","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x2"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
@@ -455,7 +453,7 @@ By adding a prefix to the message makes the calculated signature recognisable as
 #### Parameters
 account, message
 
-1. `STRING`, 32 Bytes - address.
+1. `STRING`, 20 Bytes - address.
 2. `DATA`, N Bytes - message to sign.
 
 #### Returns
@@ -466,7 +464,7 @@ account, message
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_sign","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "0x696e74636861696e"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_sign","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x696e74636861696e"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
@@ -477,12 +475,12 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_sign","params":["INT3HGH5oAB
 ```
 
 ## int_sendTransaction
-Creates new message call transaction or a contract creation, if the data field contains code.
+Creates new message call transaction or a contract creation.
 
 #### Parameters
 1. `Object` - The transaction object
-* `from`: `STRING`, 32 Bytes - The address the transaction is send from.
-* `to`: `STRING`, 32 Bytes - (optional when creating new contract) The address the transaction is directed to.
+* `from`: `STRING`, 20 Bytes - The address the transaction is send from.
+* `to`: `STRING`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 * `gas`: `QUANTITY` - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
 * `gasPrice`: `QUANTITY` - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
 * `value`: `QUANTITY` - (optional) Integer of the value sent with this transaction.
@@ -491,8 +489,8 @@ Creates new message call transaction or a contract creation, if the data field c
 
 ```
 params: [{
-    "from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
-    "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs",
+    "from": "0x26ee0906f135303a0ab66b3196efabd0853c481b",
+    "to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
     "gas": "0x76c0", // 30400
     "gasPrice": "0x9184e72a000", // 10000000000000
     "value": "0xde0b6b3a7640000", // 1000000000000000000
@@ -528,7 +526,7 @@ params: ["0xf870808502540be400825208a0494e5433506b72317a4d6d6b336d6e467a69684835
 #### Returns
 `DATA`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
 
-Use [int_getTransactionReceipt](#int_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
+Use [int_getTransactionReceipt](#int_gettransactionreceipt) to get the contract address, after the transaction was confirmed, when you created a contract.
 
 #### Example
 ```bash
@@ -548,8 +546,8 @@ Executes a new message call immediately without creating a transaction on the bl
 #### Parameters
 
 1. `Object` - The transaction call object
-  - `from`: `STRING`, 32 Bytes - (optional) The address the transaction is sent from.
-  - `to`: `STRING`, 32 Bytes  - The address the transaction is directed to.
+  - `from`: `STRING`, 20 Bytes - (optional) The address the transaction is sent from.
+  - `to`: `STRING`, 20 Bytes  - The address the transaction is directed to.
   - `gas`: `QUANTITY`  - (optional) Integer of the gas provided for the transaction execution. int_call consumes zero gas, but this parameter may be needed by some executions.
   - `gasPrice`: `QUANTITY`  - (optional) Integer of the gasPrice used for each paid gas
   - `value`: `QUANTITY`  - (optional) Integer of the value sent with this transaction
@@ -558,8 +556,8 @@ Executes a new message call immediately without creating a transaction on the bl
 
 ```
 params: [{
-    "from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
-    "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs",
+    "from": "0x26ee0906f135303a0ab66b3196efabd0853c481b",
+    "to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
     "gas": "0x76c0", // 30400
     "gasPrice": "0x9184e72a000", // 10000000000000
     "value": "0xde0b6b3a7640000", // 1000000000000000000
@@ -574,7 +572,7 @@ params: [{
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_call","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}, "latest"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_call","params":[{"from": "0x26ee0906f135303a0ab66b3196efabd0853c481b", "to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}, "latest"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x"}
@@ -595,7 +593,7 @@ See [int_call](#int_call) parameters, expect that all properties are optional. I
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_estimateGas","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_estimateGas","params":[{"from": "0x26ee0906f135303a0ab66b3196efabd0853c481b", "to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
@@ -665,7 +663,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBlockByHash","params":["0
         "hash":"0x83d0251895e93a22871b7ff39c559f7135300de14f8f2b47ef49cedf43f38122",
         "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "mainchainNumber":"0x0",
-        "miner":"INT32YViqoXKLjRnp2rB7F8dXWUQMFhN",
+        "miner":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
         "mixHash":"0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
         "nonce":"0x0000000000000000",
         "number":"0x197bbf",
@@ -680,13 +678,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getBlockByHash","params":["0
             {
                 "blockHash":"0x83d0251895e93a22871b7ff39c559f7135300de14f8f2b47ef49cedf43f38122",
                 "blockNumber":"0x197bbf",
-                "from":"INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+                "from":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
                 "gas":"0x5208",
                 "gasPrice":"0x3b9aca00",
                 "hash":"0x30a555d3707e03da13680228d076d996d4f32ff533d69f565dc13587333e45bb",
                 "input":"0x91e8537e000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001400000000000000000000000000000000000000000000000000000000000000013494e542053757065722056616c696461746f7200000000000000000000000000000000000000000000000000000000000000000000000000000000000000001368747470733a2f2f696e74636861696e2e696f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000104531353733453236384138313835303300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f494e5420746f20746865206d6f6f6e0000000000000000000000000000000000",
                 "nonce":"0x9",
-                "to":"INT3FFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+                "to":"0x0000000000000000000000000000000000001001",
                 "transactionIndex":"0x0",
                 "value":"0x0",
                 "v":"0x28",
@@ -755,13 +753,13 @@ params: [
 
   - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when its pending.
   - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when its pending.
-  - `from`: `STRING`, 32 Bytes - address of the sender.
+  - `from`: `STRING`, 20 Bytes - address of the sender.
   - `gas`: `QUANTITY` - gas provided by the sender.
   - `gasPrice`: `QUANTITY` - gas price provided by the sender in Wei.
   - `hash`: `DATA`, 32 Bytes - hash of the transaction.
   - `input`: `DATA` - the data send along with the transaction.
   - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
-  - `to`: `STRING`, 32 Bytes - address of the receiver. `null` when its a contract creation transaction.
+  - `to`: `STRING`, 20 Bytes - address of the receiver. `null` when its a contract creation transaction.
   - `transactionIndex`: `QUANTITY` - integer of the transaction's index position in the block. `null` when its pending.
   - `value`: `QUANTITY` - value transferred in Wei.
   - `v`: `QUANTITY` - ECDSA recovery id
@@ -780,13 +778,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getTransactionByHash","param
     "result":{
         "blockHash":"0x7e74a89eb3d27100ad2bf85dfc8f4c80089034921fb68bc1d5ffafcb05ca454b",
         "blockNumber":"0x142c9e",
-        "from":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+        "from":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
         "gas":"0x76c0",
         "gasPrice":"0x2540be400",
         "hash":"0xa0b5dba5dc1a197e3b92aeecb697863d751f1d829111fb03b48b7d4f63f8f8e8",
         "input":"0x",
         "nonce":"0x6d8a0",
-        "to":"INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "to":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
         "transactionIndex":"0x0",
         "value":"0x152d02c7e14af6800000",
         "v":"0x28",
@@ -885,8 +883,8 @@ params: [
   - `transactionIndex`: `QUANTITY` - integer of the transaction's index position in the block.
   - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in.
   - `blockNumber`: `QUANTITY` - block number where this transaction was in.
-  - `from`: `STRING`, 32 Bytes - address of the sender.
-  - `to`: `STRING`, 32 Bytes - address of the receiver. null when it's a contract creation transaction.
+  - `from`: `STRING`, 20 Bytes - address of the sender.
+  - `to`: `STRING`, 20 Bytes - address of the receiver. null when it's a contract creation transaction.
   - `cumulativeGasUsed `: `QUANTITY ` - The total amount of gas used when this transaction was executed in the block.
   - `gasUsed `: `QUANTITY ` - The amount of gas used by this specific transaction alone.
   - `contractAddress `: `STRING`, 32 Bytes - The contract address created, if the transaction was a contract creation, otherwise `null`.
@@ -909,14 +907,14 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getTransactionReceipt","para
         "blockNumber":"0x142c9e",
         "contractAddress":null,
         "cumulativeGasUsed":"0x5208",
-        "from":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+        "from":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
         "gasUsed":"0x5208",
         "logs":[
 
         ],
         "logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "status":"0x1",
-        "to":"INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "to":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
         "transactionHash":"0xa0b5dba5dc1a197e3b92aeecb697863d751f1d829111fb03b48b7d4f63f8f8e8",
         "transactionIndex":"0x0"
     }
@@ -948,13 +946,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_pendingTransactions","params
         {
             "blockHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
             "blockNumber":null,
-            "from":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+            "from":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
             "gas":"0x76c0",
             "gasPrice":"0x2540be400",
             "hash":"0xa22424e8fad4bab906fa69d5354e6330d4758da6625547a47e9cf607088bcf8e",
             "input":"0x",
             "nonce":"0x6d8a2",
-            "to":"INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4",
+            "to":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
             "transactionIndex":"0x0",
             "value":"0x1",
             "v":"0x28",
@@ -964,13 +962,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_pendingTransactions","params
         {
             "blockHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
             "blockNumber":null,
-            "from":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+            "from":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
             "gas":"0x76c0",
             "gasPrice":"0x2540be400",
             "hash":"0x6484bf419cf5bfc9cc7cdd9ee0ce28e49e6c443b4cdaa9733f3fcd1cbd459954",
             "input":"0x",
             "nonce":"0x6d8a3",
-            "to":"INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4",
+            "to":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
             "transactionIndex":"0x0",
             "value":"0x1",
             "v":"0x28",
@@ -981,13 +979,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_pendingTransactions","params
         {
             "blockHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
             "blockNumber":null,
-            "from":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+            "from":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
             "gas":"0x76c0",
             "gasPrice":"0x2540be400",
             "hash":"0xb4f8a35220c278bc830d01358192cd085dd0368a5b85f0c6f17bcc8e9dc240a6",
             "input":"0x",
             "nonce":"0x6d8ad",
-            "to":"INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4",
+            "to":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
             "transactionIndex":"0x0",
             "value":"0x1",
             "v":"0x28",
@@ -1016,7 +1014,7 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 1. `Object` - The filter options:
   - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
   - `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
-  - `address`: `STRING|Array`, 32 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+  - `address`: `STRING|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
   - `topics`: `Array of DATA`,  - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
 
 #### Example Parameters
@@ -1024,7 +1022,7 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
 params: [{
   "fromBlock": "0x1",
   "toBlock": "0x2",
-  "address": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+  "address": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
   "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", null, ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x0000000000000000000000000aff3454fce5edbc8cca8697c15331677e6ebccc"]]
 }]
 ```
@@ -1160,7 +1158,7 @@ params: [
   - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when its pending log.
   - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when its pending. `null` when its pending log.
   - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when its pending. `null` when its pending log.
-  - `address`: `STRING`, 32 Bytes - address from which this log originated.
+  - `address`: `STRING`, 20 Bytes - address from which this log originated.
   - `data`: `DATA` - contains the non-indexed arguments of the log.
   - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.)
 
@@ -1179,7 +1177,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getFilterChanges","params":[
     "blockHash": "0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d",
     "transactionHash":  "0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf",
     "transactionIndex": "0x0", // 0
-    "address": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+    "address": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
     "data":"0x0000000000000000000000000000000000000000000000000000000000000000",
     "topics": ["0x59ebeb90bc63057b6515673c3ecf9438e5058bca0f92585014eced636878c9a5"]
     },{
@@ -1227,7 +1225,7 @@ Returns an array of all logs matching a given filter object.
 1. `Object` - The filter options:
   - `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
   - `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
-  - `address`: `STRING|Array`, 32 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+  - `address`: `STRING|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
   - `topics`: `Array of DATA`,  - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
   - `blockhash`:  `DATA`, 32 Bytes - (optional) `blockHash` is a new filter option which restricts the logs returned to the single block with the 32-byte hash `blockHash`.  Using `blockHash` is equivalent to `fromBlock` = `toBlock` = the block number with hash `blockHash`.  If `blockHash` is present in the filter criteria, then neither `fromBlock` nor `toBlock` are allowed.
 
@@ -1288,11 +1286,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getWork","params":[],"id":1}
 Sign the address with BLS private key, return the BLS signature to proof you are the owner of the BLS public key.
 
 #### Parameters
-   1. `from`: `STRING`, 32 Bytes - The address which will be signed.
+   1. `from`: `STRING`, 20 Bytes - The address which will be signed.
    2. `privateKey`: `DATA`, 32 Bytes - The BLS private key.
 
     params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
         "0x9306FCB9C4B16E18044AC41F4E9E0460B4DABAF1BDA4E26053F2A57587CF6F3F"
     ]
 
@@ -1304,7 +1302,7 @@ Sign the address with BLS private key, return the BLS signature to proof you are
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_signAddress","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "0x9306FCB9C4B16E18044AC41F4E9E0460B4DABAF1BDA4E26053F2A57587CF6F3F"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_signAddress","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x9306FCB9C4B16E18044AC41F4E9E0460B4DABAF1BDA4E26053F2A57587CF6F3F"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b"}
@@ -1315,7 +1313,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_signAddress","params":["INT3
 Register to become a validator candidate.
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The address the transaction is send from.
+1. `from`: `STRING`, 20 Bytes - The address the transaction is send from.
 2. `registerAmount`: `QUANTITY` - Integer of the register amount of INT (minimum 1 INT `0xde0b6b3a7640000`).
 3. `pubkey`: `DATA`, 128 Bytes - The BLS public key.
 4. `signature`: `DATA`, 64 Bytes - The BLS signature for the from address.
@@ -1325,7 +1323,7 @@ Register to become a validator candidate.
 
 ```bash
     params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
         "0xde0b6b3a7640000",
         "6390......7771C",
         "0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b",
@@ -1340,7 +1338,7 @@ Register to become a validator candidate.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_register","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "0xde0b6b3a7640000", "6390CF50585CD26D2B32D118080C05AF7F5263B4142F3D0D0A77201DA2B26DBA0AB68FF2A54C678F2B6C732D3AF71FF03AF6810C547DFE2F7063BB4B4C9A51903BA76BCFF37ED203A3107701F01D5D3E4445ACF0D199198E4666D435CD624EE567B8601A906C65596F6558339A8201F915C3EFE30EE0C770C91D83738FC7771C", "0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b", 10],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_register","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0xde0b6b3a7640000", "6390CF50585CD26D2B32D118080C05AF7F5263B4142F3D0D0A77201DA2B26DBA0AB68FF2A54C678F2B6C732D3AF71FF03AF6810C547DFE2F7063BB4B4C9A51903BA76BCFF37ED203A3107701F01D5D3E4445ACF0D199198E4666D435CD624EE567B8601A906C65596F6558339A8201F915C3EFE30EE0C770C91D83738FC7771C", "0x77d81859783226eb1dd5193484b8ea0a77c947bc1b3b225194c5e4ddc064e5455b30c7c5a05879b70f32bb44c6cb192d63c1ccaec8b2817b1b9e18cee8749e4b", 10],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xb0b72c93e315133e9573219333c0a60de146398dff5bf8ba2c90dcc5c3391b7c"}
@@ -1351,7 +1349,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_register","params":["INT3HGH
 Returns the validator candidate status of given address.
 
 #### Parameters
-1. `address`: `STRING`, 32 Bytes - The address to check .
+1. `address`: `STRING`, 20 Bytes - The address to check .
 2. `blockNumber`: `QUANTITY|TAG` - Integer block number, or the string "latest", "earliest" or "pending"
 
 #### Returns
@@ -1363,7 +1361,7 @@ Returns the validator candidate status of given address.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_checkCandidate","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "latest"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_checkCandidate","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "latest"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":{"candidate":true,"commission":10}}
@@ -1374,7 +1372,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_checkCandidate","params":["I
 Create a new transaction to cancel the validator candidate qualification, if the address has deposited proxied balance, it will be refund at the end of epoch, otherwise will be refund immediately.
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The validator candidate address.
+1. `from`: `STRING`, 20 Bytes - The validator candidate address.
 
 #### Returns
 `DATA`, 32 Bytes - The transaction hash, or the zero hash if the transaction is not yet available.
@@ -1383,7 +1381,7 @@ Create a new transaction to cancel the validator candidate qualification, if the
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_unRegister","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_unRegister","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x36e71e25dfdafbf0bdf19b9714152c1e484fd0b8115d18cdd16a0f98a72ad893"}
@@ -1394,15 +1392,15 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_unRegister","params":["INT3H
 Create a new transaction to delegate your balance to validator candidate.
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The address who want to delegate.
-2. `candidate`: `STRING`, 32 Bytes - The address of validator candidate.
+1. `from`: `STRING`, 20 Bytes - The address who want to delegate.
+2. `candidate`: `STRING`, 20 Bytes - The address of validator candidate.
 3. `amount`: `QUANTITY` - Amount of the delegate INT (minimum 1,000 INT `0x3635c9adc5dea00000`).
 4. `gasPrice`: `QUANTITY` - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
 
 ```bash
     params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", 
-        "INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL", 
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", 
+        "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", 
         "0x3635c9adc5dea00000"
     ]
 ```
@@ -1415,7 +1413,7 @@ Create a new transaction to delegate your balance to validator candidate.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_delegate","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL", "0x3635c9adc5dea00000"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_delegate","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "0x3635c9adc5dea00000"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x38abd4a9ed9b3925c2523aace34069b5b9c672f449d74c28391b07686dd3e1df"}
@@ -1426,8 +1424,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_delegate","params":["INT3HGH
 Create a new transaction to cancel your delegation from validator candidate, these unbonded token won't become liquid tokens immediately,After the undelegate transactions are executed. Usually the undelegate period is 2 hours. Once the undelegate period is end, the unbonded token will become liquid token automatically
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The address who want to cancel delegate.
-2. `candidate`: `STRING`, 32 Bytes - The address of validator candidate.
+1. `from`: `STRING`, 20 Bytes - The address who want to cancel delegate.
+2. `candidate`: `STRING`, 20 Bytes - The address of validator candidate.
 3. `amount`: `QUANTITY` - Amount of the delegate INT.
 4. `gasPrice`: `QUANTITY` - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas.
 
@@ -1438,7 +1436,7 @@ Create a new transaction to cancel your delegation from validator candidate, the
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_unDelegate","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL", "0x3635c9adc5dea00000"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_unDelegate","params":["0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "0x3635c9adc5dea00000"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x234ff1d87ee437ed0882166e8b7210d6e9de2ddc7746e155b3b074b81277f84c"}
@@ -1449,7 +1447,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_unDelegate","params":["INT3H
 Create a new transaction to reset the commission percentage of validator candidate.
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The validator candidate address.
+1. `from`: `STRING`, 20 Bytes - The validator candidate address.
 2. `commission`: `QUANTITY` - Commission percentage of validator candidate.
 
 #### Returns
@@ -1459,7 +1457,7 @@ Create a new transaction to reset the commission percentage of validator candida
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_setCommission","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", 50],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_setCommission","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", 50],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x0c96e71e100006b08f78ed4cf12a034bd96df49023cee5ad8a565389e2b2707c"}
@@ -1469,12 +1467,12 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_setCommission","params":["IN
 Withdraw the staking reward from delegate address.
 
 #### Parameters
-   1. `from`: `STRING`, 32 Bytes - The address has voted.
-   2. `delegateAddress`: `STRING`, 32 Bytes - The delegate address.
+   1. `from`: `STRING`, 20 Bytes - The address has voted.
+   2. `delegateAddress`: `STRING`, 20 Bytes - The delegate address.
 
     params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
-        "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"
+        "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec"
     ]
 
 #### Returns
@@ -1485,7 +1483,7 @@ Withdraw the staking reward from delegate address.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xcb92a3c46995d009f2d9721290366a4bb8f4f780ebf65aa04d9ff51fa9b92f3b"}
@@ -1546,20 +1544,20 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getEpoch","params":["0xd8"],
         "endTime":"2020-04-17T19:26:21.475+08:00",
         "validators":[
             {
-                "address":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+                "address":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
                 "publicKey":"0x2F08524FC0D366716CE915C084B51F4D08018671CC8CA4C70A4F95C84E1920AC8BBB0CACF9E7EEBE6BDFBD836650D6EF257FBC6F713003BB116F0800BD04B1FA3140746CE6551F9F9F482766FA1ED327AE05A43577D1DE4558E3502F0F0DA18B2BDE90FA204DEE1ECA1F7CBD88E7F9FC6AE7A6C68F9F2921C6E27377340E30B5",
                 "votingPower":"0x315dbb485ed05b7400000",
                 "remainEpoch":"0x0"
             },
             {
-                "address":"INT3FLSfrYVyxeeJZBvoNcJiMzAbbc2i",
+                "address":"0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
                 "publicKey":"0x1FB2E7FD9565133D0F5775AF99A1294755652EECB480401C9B20BDD6D3C10C9357EBB4096495A2C40FF2375D2E2FB73B6C6B2EA347674E992B99097699AB31B8739A48B5C1EA9527CFE55A7EAF1E4F7AE33D981090D26FF05C0533A444F656656D2D8C80EAEAFED5824CCB515B6A4D4B1D1966FBD561CE860D4CE8F58BB2AD44",
                 "votingPower":"0x315dbb485ed05b7400000",
                 "remainEpoch":"0x0"
             },
             ...
             {
-                "address":"INT385MNAM44dwVJ4GUaqUbUTZqrMdHZ",
+                "address":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
                 "publicKey":"0x3AB852DBA5B35FA848D90BDAE5C468FAE256AD47539319CB47DE64526D18B543194D551D4A9FFFE69AC90EA896444D9168AF134B7B695DCF020CF78DA726F3016893A810628DF5FBC03F6F272E2D8BA2F4EC9E61391DCCBA240243B3C989C9787366AB2FCCDB8FF9C74AC1C2A0EF1A6387F4AAACBC4E40AD33361D8CCC8B1A10",
                 "votingPower":"0x315dbb485ed05b7400000",
                 "remainEpoch":"0x0"
@@ -1613,20 +1611,20 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getNextEpochValidators","par
     "id":1,
     "result":[
         {
-            "address":"INT3DAT2JhRUJpSVC64uyCXqRM9UcsYU",
+            "address":"0x26ee0906f135303a0ab66b3196efabd0853c481b",
             "publicKey":"0x2F08524FC0D366716CE915C084B51F4D08018671CC8CA4C70A4F95C84E1920AC8BBB0CACF9E7EEBE6BDFBD836650D6EF257FBC6F713003BB116F0800BD04B1FA3140746CE6551F9F9F482766FA1ED327AE05A43577D1DE4558E3502F0F0DA18B2BDE90FA204DEE1ECA1F7CBD88E7F9FC6AE7A6C68F9F2921C6E27377340E30B5",
             "votingPower":"0x315dbb485ed05b7400000",
             "remainEpoch":"0x0"
         },
         {
-            "address":"INT3FLSfrYVyxeeJZBvoNcJiMzAbbc2i",
+            "address":"0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
             "publicKey":"0x1FB2E7FD9565133D0F5775AF99A1294755652EECB480401C9B20BDD6D3C10C9357EBB4096495A2C40FF2375D2E2FB73B6C6B2EA347674E992B99097699AB31B8739A48B5C1EA9527CFE55A7EAF1E4F7AE33D981090D26FF05C0533A444F656656D2D8C80EAEAFED5824CCB515B6A4D4B1D1966FBD561CE860D4CE8F58BB2AD44",
             "votingPower":"0x315dbb485ed05b7400000",
             "remainEpoch":"0x0"
         },
         ...
         {
-            "address":"INT385MNAM44dwVJ4GUaqUbUTZqrMdHZ",
+            "address":"0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
             "publicKey":"0x3AB852DBA5B35FA848D90BDAE5C468FAE256AD47539319CB47DE64526D18B543194D551D4A9FFFE69AC90EA896444D9168AF134B7B695DCF020CF78DA726F3016893A810628DF5FBC03F6F272E2D8BA2F4EC9E61391DCCBA240243B3C989C9787366AB2FCCDB8FF9C74AC1C2A0EF1A6387F4AAACBC4E40AD33361D8CCC8B1A10",
             "votingPower":"0x315dbb485ed05b7400000",
             "remainEpoch":"0x0"
@@ -1643,7 +1641,7 @@ None
 
 #### Returns
 `Object` - The validator object
-* `address`: `STRING`, 32 Bytes - The private validator address.
+* `address`: `STRING`, 20 Bytes - The private validator address.
 * `consensus_pub_key`: `DATA`, 128 Bytes - The BLS public key.
 * `consensus_priv_key`: `DATA`, 32 Bytes - The BLS private key.
 
@@ -1651,67 +1649,67 @@ None
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_createValidator","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_createValidator","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {
     "jsonrpc":"2.0",
     "id":1,
     "result":{
-        "address":"INT3HGH5oAByC1ni3yccBKrrLcNTZry7",
+        "address":"0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
         "consensus_pub_key":"4DA0B409FD27FFA96ABC02A10374BDD2E5B1A110CE407D4392027FE12FD5A3F9037E71BF53F540EE67BE08F9CF0F90C27A9926E0F572FF50ACBD0B6DFCC17CC43195F5DF62874AF5FC9E40A43258627458D9BF68309CB65B53249A15E23C0342541B0C31CC8161DD1FB45C9715D35A6FE8B7A785E97F7292333C76FE7DBC25D1",
         "consensus_priv_key":"E3C3841A85FAF083B5FB91DED748E477D5B790737257201EC6080AE418FD4485"
     }
 }
 ```
 
-## int_getForbiddenStatus
-Returns the forbidden status.
+<!--## int_getForbiddenStatus-->
+<!--Returns the forbidden status.-->
 
-#### Parameters
-1. `address`: `STRING`, 32 Bytes - The validator address.
-2. `blockNumber`: `QUANTITY|TAG` - Integer block number, or the string "latest", "earliest" or "pending"
+<!--#### Parameters-->
+<!--1. `address`: `STRING`, 20 Bytes - The validator address.-->
+<!--2. `blockNumber`: `QUANTITY|TAG` - Integer block number, or the string "latest", "earliest" or "pending"-->
 
-#### Returns
-`Object` - Forbidden status
-* `blocks`: `BOOL` - Integer of mined blocks current epoch.
-* `forbidden`: `BOOL` - True if the address is forbidden, otherwise false.
-* `forbiddenEpoch`: `QUANTITY` - Integer of forbidden epoch number.
+<!--#### Returns-->
+<!--`Object` - Forbidden status-->
+<!--* `blocks`: `BOOL` - Integer of mined blocks current epoch.-->
+<!--* `forbidden`: `BOOL` - True if the address is forbidden, otherwise false.-->
+<!--* `forbiddenEpoch`: `QUANTITY` - Integer of forbidden epoch number.-->
 
-#### Example
+<!--#### Example-->
 
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenStatus","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL", "latest"],"id":1}' -H 'content-type: application/json;'
+<!--```bash-->
+<!--// Request-->
+<!--curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenStatus","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "latest"],"id":1}' -H 'content-type: application/json;'-->
 
-// Result
-{"jsonrpc":"2.0","id":1,"result":{"blocks":0,"forbidden":true,"forbiddenEpoch":2}}
-```
+<!--// Result-->
+<!--{"jsonrpc":"2.0","id":1,"result":{"blocks":0,"forbidden":true,"forbiddenEpoch":2}}-->
+<!--```-->
 
-## int_unForbidden
-Remove the forbidden validator from the forbidden list, if the validator has been forbidden for 2 epochs.
+<!--## int_unForbidden-->
+<!--Remove the forbidden validator from the forbidden list, if the validator has been forbidden for 2 epochs.-->
 
-#### Parameters
-1. `address`: `STRING`, 32 Bytes - The validator address.
+<!--#### Parameters-->
+<!--1. `address`: `STRING`, 20 Bytes - The validator address.-->
 
-#### Returns
-`DATA`, 32 Bytes - The transaction hash, or error if the validator is not forbidden.
+<!--#### Returns-->
+<!--`DATA`, 32 Bytes - The transaction hash, or error if the validator is not forbidden.-->
 
-#### Example
+<!--#### Example-->
 
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_unForbidden","params":["INT3LYjx5V3oqWPvDBvfYLfUR9NpsrwL"],"id":1}' -H 'content-type: application/json;'
+<!--```bash-->
+<!--// Request-->
+<!--curl -X POST --data '{"jsonrpc":"2.0","method":"int_unForbidden","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"],"id":1}' -H 'content-type: application/json;'-->
 
-// Result
-{"jsonrpc":"2.0","id":1,"result":"0xf461b38a5e4e4a6634b16626b317911c85db513d36aa91f67d117666eafc9a44"}
-```
+<!--// Result-->
+<!--{"jsonrpc":"2.0","id":1,"result":"0xf461b38a5e4e4a6634b16626b317911c85db513d36aa91f67d117666eafc9a44"}-->
+<!--```-->
 
 ## int_editValidator
 Edit validator information.
 
 #### Parameters
-1. `from`: `STRING`, 32 Bytes - The validator address.
+1. `from`: `STRING`, 20 Bytes - The validator address.
 2. `moniker`: `STRING` - The validator name.
 3. `website`: `STRING` - The validator website.
 4. `identity`: `STRING` - The identity signature, [please refer to validator's logo.](../concepts/2-validator-faq.md#how-to-upload-my-validators-logo-to-the-explorersgetting-started6-explorersmd)
@@ -1719,7 +1717,7 @@ Edit validator information.
 
 ```bash
     params: [
-        "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", 
+        "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", 
         "INT Super Validator", 
         "https://intchain.io", 
         "0568916658CBBE3F", 
@@ -1734,7 +1732,7 @@ Edit validator information.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_editValidator","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "INT Super Validator", "https://intchain.io", "0568916658CBBE3F", "INT to the moon"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_editValidator","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "INT Super Validator", "https://intchain.io", "0568916658CBBE3F", "INT to the moon"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x30a555d3707e03da13680228d076d996d4f32ff533d69f565dc13587333e45bb"}
@@ -1835,46 +1833,46 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_decodeExtraData","params":["
 }
 ```
 
-## int_getCandidateList
-Returns the validator candidate list.
+<!--## int_getCandidateList-->
+<!--Returns the validator candidate list.-->
 
-#### Parameters
-None
+<!--#### Parameters-->
+<!--None-->
 
-#### Returns
-`Object`- Validator candidate data object
-* `candidateList`: `ARRAY` - The validator candidate list.
+<!--#### Returns-->
+<!--`Object`- Validator candidate data object-->
+<!--* `candidateList`: `ARRAY` - The validator candidate list.-->
 
-#### Example
+<!--#### Example-->
 
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getCandidateList","params":[],"id":1}' -H 'content-type: application/json;'
+<!--```bash-->
+<!--// Request-->
+<!--curl -X POST --data '{"jsonrpc":"2.0","method":"int_getCandidateList","params":[],"id":1}' -H 'content-type: application/json;'-->
 
-// Result
-{"jsonrpc":"2.0","id":1,"result":{"candidateList":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"]}}
-```
+<!--// Result-->
+<!--{"jsonrpc":"2.0","id":1,"result":{"candidateList":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"]}}-->
+<!--```-->
 
 
-## int_getForbiddenList
-Returns the forbidden validator list.
+<!--## int_getForbiddenList-->
+<!--Returns the forbidden validator list.-->
 
-#### Parameters
-None
+<!--#### Parameters-->
+<!--None-->
 
-#### Returns
-`Object`- Forbidden data object
-* `forbiddenList`: `ARRAY` - The forbidden validator list.
+<!--#### Returns-->
+<!--`Object`- Forbidden data object-->
+<!--* `forbiddenList`: `ARRAY` - The forbidden validator list.-->
 
-#### Example
+<!--#### Example-->
 
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenList","params":[],"id":1}' -H 'content-type: application/json;'
+<!--```bash-->
+<!--// Request-->
+<!--curl -X POST --data '{"jsonrpc":"2.0","method":"int_getForbiddenList","params":[],"id":1}' -H 'content-type: application/json;'-->
 
-// Result
-{"jsonrpc":"2.0","id":1,"result":{"forbiddenList":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"]}}
-```
+<!--// Result-->
+<!--{"jsonrpc":"2.0","id":1,"result":{"forbiddenList":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"]}}-->
+<!--```-->
 
 ## the default block parameter
 

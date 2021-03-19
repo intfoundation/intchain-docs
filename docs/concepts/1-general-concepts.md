@@ -16,7 +16,7 @@ A full-node should validate all transactions and blocks. It is necessary for the
 
 ### Validator Candidate Node
 
-Only top 100 bonded full nodes (the max validator size will increase to 100) can become validator nodes, the rest will become candidates. The situation will change as delegation amount changes.
+Only top 25 bonded full nodes can become validator nodes, the rest will become candidates. The situation will change as delegation amount changes.
 
 ## User Types
 
@@ -26,7 +26,7 @@ A validator operator is the only one who can operate the Validator's information
 
 ### Delegator
 
-Delegators are INT holders who cannot, or do not want to run a validator themselves. INT holders can delegate INT to a validator and obtain a part of their revenue in exchange. They can earn as much as the validators and only need to pay some commission.
+Delegators are INT holders who delegate INT to a validator and obtain some rewards in exchange. They can earn as much as the validators and only need to pay some commission.
 
 
 ## INT Token

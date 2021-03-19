@@ -17,13 +17,13 @@ intchain -h
 NAME:
    intchain - the intchain command line interface
 
-   Copyright 2018-2020 The INT Chain Authors
+   Copyright 2018-2021 The INT Chain Authors
 
 USAGE:
    intchain [options] command [command options] [arguments...]
    
 VERSION:
-   4.0.3
+   4.0.8
    
 COMMANDS:
    account           Manage accounts
@@ -148,6 +148,6 @@ DEPRECATED OPTIONS:
   
 
 COPYRIGHT:
-   Copyright 2018-2020 The INT Chain Authors
+   Copyright 2018-2021 The INT Chain Authors
 
 ```

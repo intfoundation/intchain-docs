@@ -14,7 +14,7 @@ encrypting it with the passphrase.
 2. `passphrase`: `String` - Which to encrypt the private key with.
 
 #### Returns
-`String`, 32 Bytes - Returns the address of the new account.
+`String`, 20 Bytes - Returns the address of the new account.
 
 #### Example
 
@@ -23,7 +23,7 @@ encrypting it with the passphrase.
 curl -X POST --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["85ce6cc31ab08feb27bb1e4054f07e80a66f07d590b9ac1bc4d0aeb7d6bccd4e", "intchain"],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":"INT3NvbWet4xFAW5Xrk2EaUcc3nKBjsf"}
+{"jsonrpc":"2.0","id":1,"result":"0x819d68abb6c52e4c3a20e07ee172412274c4d40b"}
 ```
 
 ## personal_listAccounts
@@ -44,7 +44,7 @@ None
 curl -X POST --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":["INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z","INT3MMzkukxhiPwDLqkexCxzuYief4Js","INT39iewq2jAyREvwqAZX4Wig5GVmSsc"]}
+{"jsonrpc":"2.0","id":1,"result":["0x819d68abb6c52e4c3a20e07ee172412274c4d40b","0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec","0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"]}
 ```
 
 ## personal_lockAccount
@@ -53,7 +53,7 @@ Removes the private key with given address from memory.
 The account can no longer be used to send transactions.
 
 #### Parameters
-1. `from`: `String`, 32 Bytes - The address to lock.
+1. `from`: `String`, 20 Bytes - The address to lock.
 
 #### Returns
 `Bool` - Returns true or error.
@@ -62,7 +62,7 @@ The account can no longer be used to send transactions.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["INT3HGH5oAByC1ni3yccBKrrLcNTZry7"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_lockAccount","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":true}
@@ -78,7 +78,7 @@ Returns the address of the new account.
 1. `passphrase`: `String | Number` - The passphrase to encrypt the key file.
 
 #### Returns
-`String`, 32 Bytes - Returns the address of the new account.
+`String`, 20 Bytes - Returns the address of the new account.
 
 #### Example
 
@@ -87,7 +87,7 @@ Returns the address of the new account.
 curl -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["foo"],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":"INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs"}
+{"jsonrpc":"2.0","id":1,"result":"0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"}
 ```
 
 ## personal_unlockAccount
@@ -105,7 +105,7 @@ of zero seconds unlocks the key until `intchain` exits.
 The account can be used with `int_sign` and `int_sendTransaction` while it is unlocked.
 
 #### Parameters
-1. `address`: `String`, 32 Bytes - The address to decrypt the key with.
+1. `address`: `String`, 20 Bytes - The address to decrypt the key with.
 2. `passphrase`: `String | Number` - The passphrase to decrypt the key file.
 3. `duration`: `Number` - (optional, default: 300 s) The duration of the unencrypted key will be held in memory.
 
@@ -116,7 +116,7 @@ The account can be used with `int_sign` and `int_sendTransaction` while it is un
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "foo", 3600],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "foo", 3600],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":true}
@@ -139,7 +139,7 @@ The transaction is the same argument as for `int_sendTransaction` and contains t
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7","to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "value": "0xde0b6b3a7640000"}, "foo"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sendTransaction","params":[{"from": "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1","to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "value": "0xde0b6b3a7640000"}, "foo"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x64c0380cc09a71f5b0357c588258b990fc55d51d900ec4d175daab0b5922c035"}
@@ -156,7 +156,7 @@ See ecRecover to verify the signature.
 
 #### Parameters
 1. `message`: `Data` - The message to sign with.
-2. `account`: `String`, 32 Bytes - The address to decrypt the key with.
+2. `account`: `String`, 20 Bytes - The address to decrypt the key with.
 3. `password`: `String | Number` - The passphrase to decrypt the key file.
 
 #### Returns
@@ -166,7 +166,7 @@ See ecRecover to verify the signature.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0x696e74636861696e","INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "foo"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0x696e74636861696e","0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "foo"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xe002de1607932aead14e85c9a7be83744ccc82197e8d1a73757a370c2096858e0258de3eb02d57ed49bc2a7c2e15e329d4a2db22e365c16a384e8f78c149521c1b"}
@@ -181,7 +181,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0x696e
 2. `signature`: `Data`, 65 Bytes - The signature was calculated in `personal_sing`.
 
 #### Returns
-`Address`, `String`, 32 Bytes - The address associated with the private key that was used to calculate the signature in `personal_sign`.
+`Address`, `String`, 20 Bytes - The address associated with the private key that was used to calculate the signature in `personal_sign`.
 
 #### Example
 
@@ -190,5 +190,5 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0x696e
 curl -X POST --data '{"jsonrpc":"2.0","method":"personal_ecRecover","params":["0x696e74636861696e","0xe002de1607932aead14e85c9a7be83744ccc82197e8d1a73757a370c2096858e0258de3eb02d57ed49bc2a7c2e15e329d4a2db22e365c16a384e8f78c149521c1b"],"id":1}' -H 'content-type: application/json;'
 
 // Result
-{"jsonrpc":"2.0","id":1,"result":"INT3HGH5oAByC1ni3yccBKrrLcNTZry7"}
+{"jsonrpc":"2.0","id":1,"result":"0x9b2a3f8b653e6b64d5d59f02ef8b94b219db7510"}
 ```

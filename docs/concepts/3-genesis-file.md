@@ -27,7 +27,7 @@ Each genesis state starts with a list of account balances. Social consensus on t
 * **gasLimit**     The gas limit of one block, default 120000000
 * **difficulty**   The difficulty of one block, default 0x1
 * **mixHash**      Mix hash
-* **coinbase**     Coinbase address, default `INT3AAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+* **coinbase**     Coinbase address, default `0x0000000000000000000000000000000000000000`
 * **alloc**        The genesis allocation of balance and amount
 * **number**       The number of genesis block, default 0x0
 * **gasUsed**      Blockchain’s config

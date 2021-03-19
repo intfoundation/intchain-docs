@@ -34,7 +34,7 @@ After a validator is registered, they can be in three states:
 
 - `active`: Validator is in the active set and participates in consensus. Validator is earning rewards and can be forbidden for misbehaviour.
 - `forbidden`: Validator misbehaved and is forbidden, i.e. outside of the validator set. The validator can send an `unforbid` transaction in order to re-enter the validator set.
-- `inactive`: Validator is out of the top 100 validators and become a candidate, the validator can delegate more INT to himself to be in top 100, then he will be active automatically in the next epoch.
+- `inactive`: Validator is out of the top 25 validators and become a candidate, the validator can delegate more INT to himself to be in top 25, then he will be active automatically in the next epoch.
 
 
 ### How to backup the validator
@@ -62,7 +62,7 @@ Self-delegation is delegation from a validator to himself. This amount can be in
 
 ### Is there a minimum amount of INT that register needs
 
-The minimum amount is `10000 INT`.
+The minimum amount is `1000000 INT`.
 
 ### Can a validator run away with their delegators' funds
 

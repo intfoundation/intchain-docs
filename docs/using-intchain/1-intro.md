@@ -14,16 +14,16 @@ It's recommended that you run INT Chain nodes on Linux Server.
 
 ### Minimum Requirement
 
-- 2 CPU
-- Memory: 6GB
-- Disk: 256GB SSD
+- 4 CPU
+- Memory: 8GB
+- Disk: 512GB SSD
 - OS: CentOS 7.5 64-bit
 - Bandwidth: 20Mbps
 - Allow all incoming connections on TCP port 8550 and 8555
 
 ## Home Directory
 
-The home directory is the working directory of the INT Chain node. The home directory contains all the configuration information and all the data that the node runs.
+The home directory is the working directory of the INT Chain node. The home directory contains all the configuration information and all the data of node.
 
 In the `intchain` command, you can specify the home directory of the node by using flag `--datadir`. 
 If you run multiple nodes on the same machine, you need to specify different home directories for them. 
