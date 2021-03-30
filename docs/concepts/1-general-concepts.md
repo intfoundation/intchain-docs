@@ -63,7 +63,7 @@ The following formulas are based on the current INT Chain params.
 
 #### Block Rewards
 
-- **BlockInflation =** `AnnualInflation / (365*24*60*60)` (aka 0.634 INT based on 1s per block)
+- **BlockInflation =** `AnnualInflation / (365*24*60*20)` (aka 1.902 INT based on 3s per block)
 - **BlockRewards =** `(BlockInflation + BlockCollectedFees)`
 - **Commission =** `BlockRewards * ValidatorCommissionRate`
 - **ValidatorRewards =** `(BlockRewards - Commission) * (ValidatorSelfDelegation / ValidatorBondedTokens) + Commission`
