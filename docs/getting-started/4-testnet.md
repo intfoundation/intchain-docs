@@ -18,6 +18,6 @@ intchain --testnet
 
 You can use the public RPC develop and test your apps.
 
-- RPC: <http://testnet.titansrpc.intchain.io>
+- RPC: <https://testnet.titansrpc.intchain.io>
 
 - Explorer: <https://titansexplorer.intchain.io>
