@@ -1633,36 +1633,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"int_getNextEpochValidators","par
 }
 ```
 
-## int_createValidator
-Returns the validator object which contains the address, conseusus public key.
-
-#### Parameters
-None
-
-#### Returns
-`Object` - The validator object
-* `address`: `STRING`, 20 Bytes - The private validator address.
-* `consensus_pub_key`: `DATA`, 128 Bytes - The BLS public key.
-* `consensus_priv_key`: `DATA`, 32 Bytes - The BLS private key.
-
-#### Example
-
-```bash
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_createValidator","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1"],"id":1}' -H 'content-type: application/json;'
-
-// Result
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":{
-        "address":"0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
-        "consensus_pub_key":"4DA0B409FD27FFA96ABC02A10374BDD2E5B1A110CE407D4392027FE12FD5A3F9037E71BF53F540EE67BE08F9CF0F90C27A9926E0F572FF50ACBD0B6DFCC17CC43195F5DF62874AF5FC9E40A43258627458D9BF68309CB65B53249A15E23C0342541B0C31CC8161DD1FB45C9715D35A6FE8B7A785E97F7292333C76FE7DBC25D1",
-        "consensus_priv_key":"E3C3841A85FAF083B5FB91DED748E477D5B790737257201EC6080AE418FD4485"
-    }
-}
-```
-
 <!--## int_getForbiddenStatus-->
 <!--Returns the forbidden status.-->
 
