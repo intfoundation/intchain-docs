@@ -24,7 +24,7 @@ Each genesis state starts with a list of account balances. Social consensus on t
 * **nonce**        Nonce
 * **timestamp**    The time to launch
 * **extraData**    The extra data of blockchain, default 0x0
-* **gasLimit**     The gas limit of one block, default 120000000
+* **gasLimit**     The gas limit of one block, default 100000000
 * **difficulty**   The difficulty of one block, default 0x1
 * **mixHash**      Mix hash
 * **coinbase**     Coinbase address, default `0x0000000000000000000000000000000000000000`
