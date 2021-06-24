@@ -20,4 +20,4 @@ You can use the public RPC develop and test your apps.
 
 - RPC: <https://testnet.titansrpc.intchain.io>
 
-- Explorer: <https://titansexplorer.intchain.io>
+- Explorer: <https://test.titansexplorer.intchain.io>

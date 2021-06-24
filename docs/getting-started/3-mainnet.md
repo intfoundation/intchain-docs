@@ -82,3 +82,13 @@ Backup the `priv_validator.json` directory located in your datadir carefully! It
 :::
 
 If there are no errors, then your node will become a validator  (depending on whether your delegation amount is in the top 25 validators) or candidate in the next epoch.
+
+
+
+## Titans Mainnet
+
+You can use the public RPC develop and test your apps.
+
+- RPC: <https://titansrpc.intchain.io>
+
+- Explorer: <https://titansexplorer.intchain.io>
