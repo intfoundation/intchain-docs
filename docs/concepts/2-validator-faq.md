@@ -32,8 +32,7 @@ The minimum hardware requirements are mentioned here: [Hardware Requeirment](../
 
 After a validator is registered, they can be in three states:
 
-- `active`: Validator is in the active set and participates in consensus. Validator is earning rewards and can be forbidden for misbehaviour.
-- `forbidden`: Validator misbehaved and is forbidden, i.e. outside of the validator set. The validator can send an `unforbid` transaction in order to re-enter the validator set.
+- `active`: Validator is in the active set and participates in consensus. Validator is earning rewards and can be removed for misbehaviour.
 - `inactive`: Validator is out of the top 25 validators and become a candidate, the validator can delegate more INT to himself to be in top 25, then he will be active automatically in the next epoch.
 
 
