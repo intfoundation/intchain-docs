@@ -57,13 +57,13 @@ The following formulas are based on the current INT Chain params.
 
 #### Annual Rewards (ignore transaction fees)
 
-- **AnnualInflation =** `Base * InflationRate` (aka 0.8 billion * 2.5% = 20 million INT)
+- **AnnualInflation =** `Base * InflationRate`
 - **ValidatorRewards =** `(AnnualInflation / BondedTokens) * (ValidatorSelfDelegation +  DelegatorsDelegation * ValidatorCommissionRate)`
 - **DelegatorRewards =** `(AnnualInflation / BondedTokens) * DelegatorSelfDelegation * (1 - ValidatorCommissionRate)`
 
 #### Block Rewards
 
-- **BlockInflation =** `AnnualInflation / (365*24*60*20)` (aka 1.902 INT based on 3s per block)
+- **BlockInflation =** `AnnualInflation / (365*24*60*20)`
 - **BlockRewards =** `(BlockInflation + BlockCollectedFees)`
 - **Commission =** `BlockRewards * ValidatorCommissionRate`
 - **ValidatorRewards =** `(BlockRewards - Commission) * (ValidatorSelfDelegation / ValidatorBondedTokens) + Commission`
@@ -80,5 +80,5 @@ Additionally, validators are expected to be active members of the community. The
 
 ## Validator Risks
 
-- **Unavailability**: Validators are expected to keep signing votes for making new blocks. If a validator's signature has not been included in the latest block for more than one epoch (about 2 hours), this validator will be forbidden and removed from next epoch validator set for two epochs.
-- **Double Sign**: If the protocol detects that a validator voted multiple different opinions about the same block (same height/round), or voted for different blocks at the same height/round, this validator will be forbidden and removed from next epoch validator set for two epochs.
+- **Unavailability**: Validators are expected to keep signing votes for making new blocks. If a validator's signature has not been included in the latest block for more than one epoch (about 2 hours), this validator will be forbidden and removed from next epoch validator set for one epochs.
+- **Double Sign**: If the protocol detects that a validator voted multiple different opinions about the same block (same height/round), or voted for different blocks at the same height/round, this validator will be forbidden and removed from next epoch validator set for one epochs.
