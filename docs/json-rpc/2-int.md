@@ -1469,10 +1469,12 @@ Withdraw the staking reward from delegate address.
 #### Parameters
    1. `from`: `STRING`, 20 Bytes - The address has voted.
    2. `delegateAddress`: `STRING`, 20 Bytes - The delegate address.
+   2. `amount`: `QUANTITY` - Amount of the reward INT.
 
     params: [
         "0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1",
-        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec"
+        "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec",
+        "0x152d02c7e14af6800000"
     ]
 
 #### Returns
@@ -1483,7 +1485,7 @@ Withdraw the staking reward from delegate address.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_withdrawReward","params":["0x68f6b1d62dd564a59fb95a2fc10abcd9710c05b1", "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "0x152d02c7e14af6800000"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0xcb92a3c46995d009f2d9721290366a4bb8f4f780ebf65aa04d9ff51fa9b92f3b"}
