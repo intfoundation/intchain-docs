@@ -506,7 +506,7 @@ Use [int_getTransactionReceipt](#int_gettransactionreceipt) to get the contract 
 #### Example
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"int_sendTransaction","params":[{"from": "INT3HGH5oAByC1ni3yccBKrrLcNTZry7", "to": "INT3LFyQS6kbBpsjdx2cB4Qb9czmD4zs", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"int_sendTransaction","params":[{"from": "0x26ee0906f135303a0ab66b3196efabd0853c481b", "to": "0x56db076b7d71d2b3a4fcabbe9df2d3a06e5611ec", "gas": "0x76c0", "gasPrice": "0x9184e72a000", "value": "0xde0b6b3a7640000", "data": ""}],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x0f6a19c3046c88efd2de590705d6c251a957ebb094a3041f21a426deb7667003"}
@@ -1232,7 +1232,7 @@ Returns an array of all logs matching a given filter object.
 #### Example Parameters
 ```
 params: [{
-  "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]
+  "topics": ["0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65"]
 }]
 ```
 
