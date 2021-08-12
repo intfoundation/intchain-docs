@@ -20,7 +20,7 @@ encrypting it with the passphrase.
 
 ```bash
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["85ce6cc31ab08feb27bb1e4054f07e80a66f07d590b9ac1bc4d0aeb7d6bccd4e", "intchain"],"id":1}' -H 'content-type: application/json;'
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_importRawKey","params":["85ce6cc31ab08feb27bb1......b9ac1bc4d0aeb7d6bccd4e", "intchain"],"id":1}' -H 'content-type: application/json;'
 
 // Result
 {"jsonrpc":"2.0","id":1,"result":"0x819d68abb6c52e4c3a20e07ee172412274c4d40b"}
