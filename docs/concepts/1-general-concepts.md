@@ -57,17 +57,17 @@ The following formulas are based on the current INT Chain params.
 
 #### Annual Rewards (ignore transaction fees)
 
-- **AnnualInflation =** `Base * InflationRate`
-- **ValidatorRewards =** `(AnnualInflation / BondedTokens) * (ValidatorSelfDelegation +  DelegatorsDelegation * ValidatorCommissionRate)`
-- **DelegatorRewards =** `(AnnualInflation / BondedTokens) * DelegatorSelfDelegation * (1 - ValidatorCommissionRate)`
+- **AnnualInflation =** `Base * InflationRate` (aka 1 billion * 2% = 20 million INT, for total 5 years. Only 0.9 billion will be initialized)
+- **ValidatorRewards =** `(AnnualInflation / TotalStakedTokens) * (ValidatorSelfDelegation +  DelegatorsDelegation * ValidatorCommissionRate)`
+- **DelegatorRewards =** `(AnnualInflation / TotalStakedTokens) * DelegatorSelfDelegation * (1 - ValidatorCommissionRate)`
 
 #### Block Rewards
 
-- **BlockInflation =** `AnnualInflation / (365*24*60*20)`
-- **BlockRewards =** `(BlockInflation + BlockCollectedFees)`
+- **BlockInflation =** `AnnualInflation / (365*24*60*60) * 3` (aka 1.902 INT based on 3s per block for the first epoch)
+- **BlockRewards =** `(BlockInflation + BlockCollectedFees / 2)` (aka half of block fees was burnt to 0x0000000000000000000000000000000000000001)
 - **Commission =** `BlockRewards * ValidatorCommissionRate`
-- **ValidatorRewards =** `(BlockRewards - Commission) * (ValidatorSelfDelegation / ValidatorBondedTokens) + Commission`
-- **DelegatorRewards =** `(BlockRewards - Commission) * (DelegatorSelfDelegation / ValidatorBondedTokens)`
+- **ValidatorRewards =** `(BlockRewards - Commission) * (ValidatorSelfDelegation / TotalStakedTokens) + Commission`
+- **DelegatorRewards =** `(BlockRewards - Commission) * (DelegatorSelfDelegation / TotalStakedTokens)`
 
 ## Validator Responsibilities
 
