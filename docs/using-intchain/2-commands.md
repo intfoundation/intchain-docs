@@ -17,13 +17,13 @@ intchain -h
 NAME:
    intchain - the intchain command line interface
 
-   Copyright 2018-2021 The INT Chain Authors
+   Copyright 2017-2021 The INT Chain Authors
 
 USAGE:
    intchain [options] command [command options] [arguments...]
    
 VERSION:
-   4.0.8
+   4.2.0
    
 COMMANDS:
    account           Manage accounts
@@ -31,13 +31,13 @@ COMMANDS:
    bug               opens a window to report a bug on the intchain repo
    console           Start an interactive JavaScript environment
    copydb            Create a local chain from a target chaindata folder
-   create-validator  Create validator address
+   create-validator  create-validator address
    dump              Dump a specific block from storage
    dumpconfig        Show configuration values
    export            Export blockchain into file
    import            Import a blockchain file
    init              Bootstrap and initialize a new genesis block
-   init-intchain     Initialize INT genesis.json file. init-intchain {"1000000000000000000000000000","100000000000000000000000"}
+   init-intchain     Initialize INT genesis.json file. init-intchain {"1000000000","100000"}
    js                Execute the specified JavaScript files
    monitor           Monitor and visualize node metrics
    removedb          Remove blockchain and state databases
@@ -49,7 +49,7 @@ INTCHAIN OPTIONS:
   --datadir "/Users/like/.intchain"  Data directory for the databases and keystore
   --keystore                         Directory for the keystore (default = inside the datadir)
   --nousb                            Disables monitoring for and managing USB hardware wallets
-  --networkid value                  Network identifier (integer, mainnet=8550, testnet=8551) (default: 8550)
+  --networkid value                  Network identifier (integer, mainnet=2047, testnet=2048) (default: 2047)
   --testnet                          Test network
   --syncmode "full"                  Blockchain sync mode ("full")
   --gcmode value                     Blockchain garbage collection mode ("full", "archive") (default: "archive")
@@ -62,10 +62,10 @@ TRANSACTION POOL OPTIONS:
   --txpool.rejournal value     Time interval to regenerate the local transaction journal (default: 1h0m0s)
   --txpool.pricelimit value    Minimum gas price limit to enforce for acceptance into the pool (default: 1)
   --txpool.pricebump value     Price bump percentage to replace an already existing transaction (default: 10)
-  --txpool.accountslots value  Minimum number of executable transaction slots guaranteed per account (default: 16000)
-  --txpool.globalslots value   Maximum number of executable transaction slots for all accounts (default: 40960)
-  --txpool.accountqueue value  Maximum number of non-executable transaction slots permitted per account (default: 6400)
-  --txpool.globalqueue value   Maximum number of non-executable transaction slots for all accounts (default: 10240)
+  --txpool.accountslots value  Minimum number of executable transaction slots guaranteed per account (default: 16)
+  --txpool.globalslots value   Maximum number of executable transaction slots for all accounts (default: 4096)
+  --txpool.accountqueue value  Maximum number of non-executable transaction slots permitted per account (default: 64)
+  --txpool.globalqueue value   Maximum number of non-executable transaction slots for all accounts (default: 1024)
   --txpool.lifetime value      Maximum amount of time non-executable transaction are queued (default: 3h0m0s)
   
 PERFORMANCE TUNING OPTIONS:
@@ -111,13 +111,13 @@ NETWORKING OPTIONS:
   --nodekeyhex value    P2P node key as hex (for testing)
   
 MINER OPTIONS:
-  --mine                         Enable mining
-  --miner.threads value          Number of CPU threads to use for mining (default: 0)
-  --miner.gasprice "1000000000"  Minimal gas price for mining a transactions
-  --miner.gastarget value        Target gas floor for mined blocks (default: 80000000)
-  --miner.gaslimit value         Target gas ceiling for mined blocks (default: 80000000)
-  --miner.etherbase value        Public address for block mining rewards (default = first account) (default: "0")
-  --extradata value              Block extra data set by the miner (default = client version)
+  --mine                            Enable mining
+  --miner.threads value             Number of CPU threads to use for mining (default: 0)
+  --miner.gasprice "5000000000000"  Minimal gas price for mining a transactions
+  --miner.gastarget value           Target gas floor for mined blocks (default: 100000000)
+  --miner.gaslimit value            Target gas ceiling for mined blocks (default: 100000000)
+  --miner.etherbase value           Public address for block mining rewards (default = first account) (default: "0")
+  --extradata value                 Block extra data set by the miner (default = client version)
   
 GAS PRICE ORACLE OPTIONS:
   --gpoblocks value      Number of recent blocks to check for gas prices (default: 20)
@@ -148,6 +148,6 @@ DEPRECATED OPTIONS:
   
 
 COPYRIGHT:
-   Copyright 2018-2021 The INT Chain Authors
+   Copyright 2017-2021 The INT Chain Authors
 
 ```
