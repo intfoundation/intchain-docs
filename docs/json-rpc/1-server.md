@@ -22,8 +22,8 @@ documentation for individual namespaces in the sidebar.
 
 | Chain Name | Chain ID |               URL              |
 |:-----------|----------|--------------------------------|
-| Main Chain |    1024 | http://localhost:8555 |
-| Test Chain |   2048  | http://localhost:8555 |
+| Main Chain |   2047   | http://localhost:8555 |
+| Test Chain |   2048   | http://localhost:8555 |
 
 ## HTTP Server
 
