@@ -7,7 +7,6 @@ order: 3
 :::tip
 **Requirements:** [install intchain](2-install.md)
 
-But the mainnet has not startted yet.
 :::
 
 ## Full Node
