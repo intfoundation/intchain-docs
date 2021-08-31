@@ -6,7 +6,7 @@ order: 2
 
 ## Latest Version
 
-The latest INT Chain version for Testnet is [v4.0.8](https://github.com/intfoundation/intchain)
+The latest INT Chain version for Mainnet [latest](https://github.com/intfoundation/intchain)
 
 ## Install `go`
 
@@ -39,7 +39,7 @@ After setting up `go` correctly, you should be able to compile and run `intchain
 Clone the source code of intchain and checkout the testnet branch, then make intchain.
 
 ```bash
-git clone --branch testnet https://github.com/intfoundation/intchain
+git clone https://github.com/intfoundation/intchain
 cd intchain
 make intchain
 ```
