@@ -36,6 +36,12 @@ The INT Chain has its own native token known as *INT*.  It is designed to serve 
 - **Staking.** Similar to the INT token in the INT Chain 3.0, the INT token will be used as a staking token to secure the IPBFT blockchain.
 - **Transaction Fee.** The INT token will also be used to pay fees for all transactions in the INT Chain network.
 
+## Inflation And Deflation
+
+The max supply of INT is 1 billion. Only 0.9 billion was initialized (contain the burned), and the left 0.1 billion will be mined in 5 years.
+
+Half of the block fee was burnt to 0x0000000000000000000000000000000000000001.
+
 
 ## Staking Rewards
 
@@ -57,7 +63,7 @@ The following formulas are based on the current INT Chain params.
 
 #### Annual Rewards (ignore transaction fees)
 
-- **AnnualInflation =** `Base * InflationRate` (aka 1 billion * 2% = 20 million INT, for total 5 years. Only 0.9 billion will be initialized)
+- **AnnualInflation =** `Base * InflationRate` (aka 1 billion * 2% = 20 million INT, for total 5 years. Only 0.9 billion was initialized)
 - **ValidatorRewards =** `(AnnualInflation / TotalStakedTokens) * (ValidatorSelfDelegation +  DelegatorsDelegation * ValidatorCommissionRate)`
 - **DelegatorRewards =** `(AnnualInflation / TotalStakedTokens) * DelegatorSelfDelegation * (1 - ValidatorCommissionRate)`
 
